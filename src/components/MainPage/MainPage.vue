@@ -1,7 +1,10 @@
 
 
 <template>
-  <section class="mainPage-container">
+  <section 
+    class="mainPage-container" 
+    data-testid="MainPage"
+  >
     Hello Kitty
   </section>
   <!-- <h1>{{ msg }}</h1>
@@ -38,7 +41,6 @@
       }
     },
     mounted() {
-      console.log('dfsdf')
       // let observer = new IntersectionObserver(this.handleIntersection,{
       //   threshold: [0.5],
       // })

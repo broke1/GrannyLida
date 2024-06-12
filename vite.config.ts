@@ -1,7 +1,10 @@
 /// <reference types="vitest" />
+import { fileURLToPath, URL } from 'url'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import eslint from 'vite-plugin-eslint'
+
+
 
 export default defineConfig({
   plugins: [
@@ -11,5 +14,10 @@ export default defineConfig({
       cache: false
     }),
     vue()
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
 })

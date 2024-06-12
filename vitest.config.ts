@@ -8,7 +8,8 @@ export default defineConfig({
   ],
   test: {
     coverage: {
-      provider: 'istanbul'
+      provider: 'istanbul',
+      exclude: ['src/main.ts']
     },
     environment: 'happy-dom'
   }

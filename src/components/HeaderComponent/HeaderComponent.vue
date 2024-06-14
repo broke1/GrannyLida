@@ -2,7 +2,7 @@
   <section class="header-container">
     <artical 
       class="header-container_logo"
-      :class="{ 'header-container_logo__show': showLogo }"
+      :class="{ 'header-container_logo__show': store.showLogo }"
     >
       <img 
         class="header-container_logo_img"
@@ -12,22 +12,17 @@
   </section>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 
-import { defineComponent } from 'vue'
+import {  onMounted  } from 'vue'
+import { mainStore } from '@/store/Store'
 
-export default defineComponent({
-  name: 'HeaderContainer',
-  data(){
-    return {
-      showLogo: false
-    }
-  },
-  mounted() {
-    setTimeout( () => {
-      this.showLogo = true
-    },1000)
-  }
+const store = mainStore()
+
+onMounted(() => {
+  setTimeout( () => {
+    store.showLogo = true
+  },1000)
 })
 
 </script>

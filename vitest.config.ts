@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'
 
@@ -9,8 +10,15 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'istanbul',
-      exclude: ['src/main.ts']
+      exclude: ['src/main.ts','src/App.vue']
     },
-    environment: 'happy-dom'
-  }
+    environment: 'happy-dom',
+    globals: true,
+  },
+  resolve: {
+    alias: {
+      // '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': resolve(__dirname, 'src')
+    }
+  },
 })

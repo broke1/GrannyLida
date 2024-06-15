@@ -7,6 +7,7 @@
   flex-flwo: row nowrap
   justify-content: space-between
   align-items: center
+  overflow: hidden
 
   &_logo
     width: 250px
@@ -21,6 +22,7 @@
     border-radius: 50%
     background: $white
     overflow: hidden
+    z-index: 2
 
     &__show
       opacity: 1
@@ -30,4 +32,47 @@
       width: 80%
       height: 80%
       object-fit: contain
+
+  &_menu
+    width: 0px
+    background: $white
+    border-radius: 50px 20px 20px 50px
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-end
+    align-items: center
+    height: 100px
+    position: fixed
+    top: 110px
+    z-index: 1
+    transition: $transition
+    opacity: 0
+    overflow: hidden
+
+    &__show
+      width: 1100px
+      opacity: 1
+
+    &_list
+      list-style-type: none
+      margin: 0
+      padding: 0
+
+      &_item
+        display: inline
+        margin-right: 30px
+        cursor: pointer
+        color: $black
+        font-family: $font
+        font-size: 1.2rem
+        line-height: 1.4rem
+        padding: 20px 15px
+        border-radius: 20px
+        background: $white
+
+        &:hover
+          color: $white
+          background: $peach-back
+
+
       

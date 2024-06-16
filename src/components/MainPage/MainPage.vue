@@ -6,19 +6,23 @@
     data-testid="MainPage"
   >
     <div class="mainPage-page_container">
-      <HeaderComponents />
+      <HeaderComponent />
+      <AboutGranny />
     </div>
   </section>
 </template>
 
 <script  lang="ts">
 
-import HeaderComponents from '@/components/HeaderComponent/HeaderComponent.vue'
+import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
+import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
+
 
 export default {
   name: 'MainPage',
   components: {
-    HeaderComponents
+    HeaderComponent,
+    AboutGranny
   },
   data(){
     return {

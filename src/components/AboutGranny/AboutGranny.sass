@@ -1,0 +1,47 @@
+@import "@/styles/main"
+  
+.about-granny-container
+  width: 100%
+  height: auto
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  align-items: center
+  margin-top: 80px
+
+  &_block
+    padding: 40px
+    width: 800px
+    border-radius: 20px
+    background: $white
+    opacity: 0
+    transition: $transition
+    transform: translateY(50%)
+
+    &__show
+      opacity: 1
+      transform: translateY(0%)
+
+    &_text
+      font-size: 2rem
+      line-height: 3rem
+      font-family: $font
+      coor: $black
+
+      &_item
+        margin: 20px 0
+
+        &__orange
+          color: $peach
+
+        &__center
+          text-align: center
+
+        &__intent
+          text-indent: 50px
+
+
+  
+
+
+      

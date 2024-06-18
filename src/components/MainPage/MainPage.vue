@@ -8,28 +8,16 @@
     <div class="mainPage-page_container">
       <HeaderComponent />
       <AboutGranny />
+      <WhySoHealthy />
     </div>
   </section>
 </template>
 
-<script  lang="ts">
+<script setup lang="ts">
 
 import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
 import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
-
-
-export default {
-  name: 'MainPage',
-  components: {
-    HeaderComponent,
-    AboutGranny
-  },
-  data(){
-    return {
-    
-    }
-  }
-}
+import WhySoHealthy from '@/components/WhySoHealthy/WhySoHealthy.vue'
 
 </script>
 

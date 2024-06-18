@@ -42,6 +42,8 @@ onMounted(() => {
   setTimeout( () => {
     store.showMenu = true
   },1500)
+
+  
 })
 
 </script>

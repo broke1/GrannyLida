@@ -12,7 +12,7 @@
     </artical>
     <artical 
       class="header-container_menu"
-      :class="{ 'header-container_menu__show': store.showMenu }"
+      :class="{ 'header-container_menu__show': store.showMenu, 'header-container_menu__scroll': store.isMenuScroll }"
       data-testid="menuTestId"
     >
       <ul class="header-container_menu_list">
@@ -24,6 +24,9 @@
           {{ item }}
         </li>
       </ul>
+      <button class="header-container_menu_button">
+        {{ "Заказать торт" }}
+      </button>
     </artical>
   </section>
 </template>
@@ -43,6 +46,9 @@ onMounted(() => {
     store.showMenu = true
   },1500)
 
+  window.addEventListener('scroll', () => {
+    window.scrollY > 100 ? store.isMenuScroll = true : store.isMenuScroll = false
+  })
   
 })
 

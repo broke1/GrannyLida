@@ -2,6 +2,7 @@ export default interface State {
   showLogo: boolean
   showMenu: boolean
   menuList: string[]
+  isMenuScroll: boolean
   showAboutGranny: boolean
   aboutGrannyText: string
   showWhySoHealthy: boolean

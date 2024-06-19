@@ -7,6 +7,7 @@ export const mainStore = defineStore('main', {
       showLogo: false,
       showMenu: false,
       menuList: ['Вкус и польза','Доставка','Каталог','Контакты'],
+      isMenuScroll: false,
       showAboutGranny: false,
       aboutGrannyText: `
       <div class="about-granny-container_block_text_item about-granny-container_block_text_item__center">Здравствуйте мои дорогие. Я <span class="about-granny-container_block_text_item__orange">Бабушка Лида</span>.</div>  

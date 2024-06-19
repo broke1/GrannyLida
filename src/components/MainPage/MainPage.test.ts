@@ -2,7 +2,7 @@ import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
 import { describe, it, expect } from 'vitest'
 import MainPage from './MainPage.vue'
-
+import '@/mockTest/mockIntersectionObserver'
 
 describe('MainPage test', () => {
 

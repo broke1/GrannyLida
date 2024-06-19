@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { describe, it, expect } from 'vitest'
 import WhySoHealthy from './WhySoHealthy.vue'
 import { mainStore } from '@/store/Store'
-
+import '@/mockTest/mockIntersectionObserver'
 
 describe('WhySoHealthy test', () => {
 

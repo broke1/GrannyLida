@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718517587224" clover="3.2.0">
-  <project timestamp="1718517587224" name="All files">
-    <metrics statements="22" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="7" elements="32" coveredelements="26" complexity="0" loc="22" ncloc="22" packages="4" files="4" classes="4"/>
+<coverage generated="1718772982368" clover="3.2.0">
+  <project timestamp="1718772982368" name="All files">
+    <metrics statements="44" coveredstatements="36" conditionals="8" coveredconditionals="2" methods="17" coveredmethods="10" elements="69" coveredelements="48" complexity="0" loc="44" ncloc="44" packages="6" files="6" classes="6"/>
     <package name="components.AboutGranny">
       <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
       <file name="AboutGranny.vue" path="C:/Workspace/GrannyLida/src/components/AboutGranny/AboutGranny.vue">
@@ -16,36 +16,70 @@
       </file>
     </package>
     <package name="components.HeaderComponent">
-      <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+      <metrics statements="14" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="4"/>
       <file name="HeaderComponent.vue" path="C:/Workspace/GrannyLida/src/components/HeaderComponent/HeaderComponent.vue">
-        <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+        <metrics statements="14" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="4"/>
         <line num="2" count="2" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="12" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
     </package>
     <package name="components.MainPage">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="MainPage.vue" path="C:/Workspace/GrannyLida/src/components/MainPage/MainPage.vue">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.WhySoHealthy">
+      <metrics statements="18" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="5" coveredmethods="2"/>
+      <file name="WhySoHealthy.vue" path="C:/Workspace/GrannyLida/src/components/WhySoHealthy/WhySoHealthy.vue">
+        <metrics statements="18" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="5" coveredmethods="2"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="68" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="mockTest">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="mockIntersectionObserver.ts" path="C:/Workspace/GrannyLida/src/mockTest/mockIntersectionObserver.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
       </file>
     </package>
     <package name="store">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Store.ts" path="C:/Workspace/GrannyLida/src/store/Store.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
       </file>
     </package>
   </project>

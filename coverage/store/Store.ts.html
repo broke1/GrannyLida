@@ -82,12 +82,44 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,12 +142,28 @@ export const mainStore = defineStore('main', {
       showLogo: false,
       showMenu: false,
       menuList: ['Вкус и польза','Доставка','Каталог','Контакты'],
+      isMenuScroll: false,
       showAboutGranny: false,
       aboutGrannyText: `
       &lt;div class="about-granny-container_block_text_item about-granny-container_block_text_item__center"&gt;Здравствуйте мои дорогие. Я &lt;span class="about-granny-container_block_text_item__orange"&gt;Бабушка Лида&lt;/span&gt;.&lt;/div&gt;  
       &lt;div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"&gt; Я пеку самые вкусные и самые полезные торты и пироженные, из всех, что Вы пробовали. &lt;/div&gt; 
       &lt;div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"&gt; А о том на сколько красивые и уникальные торты у меня получаются уже ходят сказки и легенды. &lt;/div&gt; 
-      &lt;div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"&gt; Просто попробуйте, и Вы всё чаще будете возвращаться ко мне в гости.&lt;/div&gt;`
+      &lt;div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"&gt; Просто попробуйте, и Вы всё чаще будете возвращаться ко мне в гости.&lt;/div&gt;`,
+      showWhySoHealthy: false,
+      whySoHealthyTitle: `
+      &lt;div class="why-so-healthy-container_block_title_text"&gt;Почему мои торты такие &lt;span class="why-so-healthy-container_block_title_text__orange"&gt;вкусные&lt;/span&gt;
+      и такие &lt;span class="why-so-healthy-container_block_title_text__orange"&gt;полезные&lt;/span&gt;?
+      &lt;/div&gt;`,
+      healthyText: {
+        previewHealthy: `&lt;div class="why-so-healthy-container_block_body_left_part_text_item"&gt; Мои торты такие 
+        &lt;span class="why-so-healthy-container_block_body_left_part_text_item__orange"&gt;полезные&lt;/span&gt;, потому что я всегда использую только самые качественные и свежие ингридиенты.
+        &lt;/div&gt;
+        &lt;div class="why-so-healthy-container_block_body_left_part_text_item why-so-healthy-container_block_body_left_part_text_item__center"&gt;Но есть кое-что что я не использую:&lt;/div&gt;`,
+        list: ['лактозу','глютен','красители','консерванты'],
+        endingHealthy: `&lt;div class="why-so-healthy-container_block_body_left_part_text_item"&gt; Мои торты такие 
+        &lt;span class="why-so-healthy-container_block_body_left_part_text_item__orange"&gt;вкусные&lt;/span&gt;, потому что я делаю их с любовью и заботой о каждом покупателе.
+        &lt;/div&gt;`
+      }
     }
   },
 })
@@ -127,7 +175,7 @@ export const mainStore = defineStore('main', {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-16T05:59:47.061Z
+                at 2024-06-19T04:56:22.191Z
             </div>
         <script src="../prettify.js"></script>
         <script>

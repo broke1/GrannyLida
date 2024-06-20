@@ -1,5 +1,8 @@
 <template>
-  <section class="why-so-healthy-container">
+  <section 
+    id="why-so-healthy" 
+    class="why-so-healthy-container" 
+  >
     <artical 
       ref="target"
       class="why-so-healthy-container_block"

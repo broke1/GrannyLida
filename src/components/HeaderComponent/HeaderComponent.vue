@@ -15,15 +15,16 @@
       :class="{ 'header-container_menu__show': store.showMenu, 'header-container_menu__scroll': store.isMenuScroll }"
       data-testid="menuTestId"
     >
-      <ul class="header-container_menu_list">
-        <li 
+      <div class="header-container_menu_list">
+        <router-link 
           v-for="item in store.menuList"
-          :key="item"
+          :key="item.name"
           class="header-container_menu_list_item"
+          :to="{ name: 'MainPage', hash: item.url }"
         >
-          {{ item }}
-        </li>
-      </ul>
+          {{ item.name }}
+        </router-link>
+      </div>
       <button class="header-container_menu_button">
         {{ "Заказать торт" }}
       </button>

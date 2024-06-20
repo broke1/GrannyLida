@@ -1,7 +1,7 @@
 export default interface State {
   showLogo: boolean
   showMenu: boolean
-  menuList: string[]
+  menuList: {name: string, url: string}[]
   isMenuScroll: boolean
   showAboutGranny: boolean
   aboutGrannyText: string

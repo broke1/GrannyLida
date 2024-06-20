@@ -6,7 +6,23 @@ export const mainStore = defineStore('main', {
     return {
       showLogo: false,
       showMenu: false,
-      menuList: ['Вкус и польза','Доставка','Каталог','Контакты'],
+      menuList: [
+        {
+          url: '#why-so-healthy',
+          name: 'Вкус и польза'
+        },
+        {
+          url: '#why-so-healthy',
+          name: 'Доставка'
+        },
+        {
+          url: '#why-so-healthy',
+          name: 'Каталог'
+        },
+        {
+          url: '#why-so-healthy',
+          name: 'Контакты'
+        }],
       isMenuScroll: false,
       showAboutGranny: false,
       aboutGrannyText: `

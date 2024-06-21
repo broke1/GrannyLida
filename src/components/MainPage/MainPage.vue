@@ -9,6 +9,8 @@
       <HeaderComponent />
       <AboutGranny />
       <WhySoHealthy />
+      <DeliveryComponent />
+      <CatalogComponent />
     </div>
   </section>
 </template>
@@ -16,6 +18,8 @@
 <script setup lang="ts">
 
 import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
+import CatalogComponent from '@/components/CatalogComponent/CatalogComponent.vue'
+import DeliveryComponent from '@/components/DeliveryComponent/DeliveryComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
 import WhySoHealthy from '@/components/WhySoHealthy/WhySoHealthy.vue'
 

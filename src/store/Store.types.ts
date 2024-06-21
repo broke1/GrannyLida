@@ -11,7 +11,19 @@ export default interface State {
     previewHealthy: string
     list: string[]
     endingHealthy: string
-  }
+  },
+  showDelivery: boolean
+  deliveryTitle: string
+  deliveryText: string
+  showCatalog: boolean
+  catalogTitle: string
+  catalogList: {
+    name: string,
+    price: number,
+    description: string
+    inside: string[],
+    mainImg: string
+  }[]
 }
 
 

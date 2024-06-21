@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import State from './Store.types'
+import catalogMock from './mock'
 
 export const mainStore = defineStore('main', {
   state: (): State => {
@@ -12,11 +13,11 @@ export const mainStore = defineStore('main', {
           name: 'Вкус и польза'
         },
         {
-          url: '#why-so-healthy',
+          url: '#delivery',
           name: 'Доставка'
         },
         {
-          url: '#why-so-healthy',
+          url: '#catalog',
           name: 'Каталог'
         },
         {
@@ -44,8 +45,21 @@ export const mainStore = defineStore('main', {
         endingHealthy: `<div class="why-so-healthy-container_block_body_left_part_text_item"> Мои торты такие 
         <span class="why-so-healthy-container_block_body_left_part_text_item__orange">вкусные</span>, потому что я делаю их с любовью и заботой о каждом покупателе.
         </div>`
-      }
+      },
+      showDelivery: false,
+      deliveryTitle: `<div class="delivery-container_block_title_text">Как мои торты попадают к вам на стол?</div>`,
+      deliveryText: `<div class="delivery-container_block_body_right_part_text_item"> При изготовлении кондитерских изысков, я вкладываю в них свою  
+        <span class="delivery-container_block_body_right_part_text_item__orange">любовь, мастерство и вдохновение</span>, поэтому мои торты слишком ценные, чтобы доверить их любой службе доставки.
+        </div>
+        <div class="delivery-container_block_body_right_part_text_item">Поэтому мои торты я доставляю <span class="delivery-container_block_body_right_part_text_item__orange">сама</span></div>
+        <div class="delivery-container_block_body_right_part_text_item"> Это гарантирует, что к вам они подадут в целости и в том виде, который задумала я.</div>
+      `,
+      showCatalog: false,
+      catalogTitle: `<div class="catalog-container_block_title_text">А вот и сами <span class="catalog-container_block_title_text__orange">торты</span> и 
+      <span class="catalog-container_block_title_text__orange">пироженные</span></div>`,
+      catalogList: catalogMock,
     }
   },
 })
+
 

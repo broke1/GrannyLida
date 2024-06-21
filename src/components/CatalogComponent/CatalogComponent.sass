@@ -1,0 +1,114 @@
+@import "@/styles/main"
+  
+.catalog-container
+  width: 100%
+  height: auto
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: center
+  margin-top: 200px
+
+  &_block
+    width: 100%
+    height: 100%
+    opacity: 0
+    transition: $transition
+    transform: translateY(50%)
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    align-items: center
+
+    &__show
+      opacity: 1
+      transform: translateY(0%)
+
+    &_title
+      width: 100%
+      margin-top: 50px
+      text-align: center
+      border-radius: 20px
+      background: $white
+      padding: 35px 0
+
+      &_text
+        font-size: 2.4rem
+        line-height: 2.8rem
+        color: $black
+
+        &__orange
+          color: $peach
+
+    &_body
+      display: flex
+      flex-flow: row wrap
+      justify-content: space-between
+      align-items: flex-start
+      gap: 30px
+      margin-top: 100px
+      width: 100%
+      height: 100%
+
+      &_item
+        border-radius: 20px
+        background: $white
+        width: 350px
+        cursor: pointer
+        transition: $transition
+
+        &:hover
+          transform: scale(1.05)
+
+        &_img_block
+          width: 100%
+          aspect-ratio: 1/1
+         
+          img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            border-radius: 20px 20px 0 0 
+
+        &_description_block
+          padding: 30px 20px
+
+          &_text
+            font-size: 1.4rem
+            line-height: 2.2rem
+            color: $black
+            text-indent: 50px
+            text-align: justify
+
+        &_price_block
+          display: flex
+          flex-flow: column nowrap
+          justify-content: center
+          align-items: center
+          position: relative
+
+          &_price
+            font-size: 2rem
+            line-height: 2.4rem
+            color: $peach-back
+            padding: 25px 0
+
+            &::before
+              content: ""
+              position: absolute
+              top: 0
+              left: 0
+              width: 100%
+              height: 3px
+              background: $peach-back
+
+
+
+
+    
+
+
+  
+
+
+      

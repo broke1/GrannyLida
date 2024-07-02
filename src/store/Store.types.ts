@@ -20,6 +20,7 @@ export default interface State {
   catalogList: {
     name: string,
     price: number,
+    shortDescription: string,
     description: string
     inside: string[],
     mainImg: string

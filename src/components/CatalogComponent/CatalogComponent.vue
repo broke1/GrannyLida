@@ -19,6 +19,11 @@
           :key="item.name"
           class="catalog-container_block_body_item"
         >
+          <div class="catalog-container_block_body_item_name_block">
+            <div class="catalog-container_block_body_item_name_block_text">
+              {{ item.name }}
+            </div>
+          </div>
           <div class="catalog-container_block_body_item_img_block">
             <img 
               class="catalog-container_block_body_item_img_block_img"
@@ -27,7 +32,7 @@
           </div>
           <div class="catalog-container_block_body_item_description_block">
             <div class="catalog-container_block_body_item_description_block_text">
-              {{ item.description }}
+              {{ item.shortDescription }}
             </div>
           </div>
           <div class="catalog-container_block_body_item_price_block">
@@ -66,6 +71,8 @@ onMounted(() => {
   })
 
   target.value && observer.observe(target.value)
+
+  store.getCatalogList()
 })
 
 onBeforeUnmount(() => {

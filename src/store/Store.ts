@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import State from './Store.types'
-import catalogMock from './mock'
 
 export const mainStore = defineStore('main', {
   state: (): State => {
@@ -57,9 +56,21 @@ export const mainStore = defineStore('main', {
       showCatalog: false,
       catalogTitle: `<div class="catalog-container_block_title_text">А вот и сами <span class="catalog-container_block_title_text__orange">торты</span> и 
       <span class="catalog-container_block_title_text__orange">пироженные</span></div>`,
-      catalogList: catalogMock,
+      catalogList: [],
     }
   },
+  actions: {
+    async getCatalogList() {
+      
+      await fetch('/api/getCatalogList')
+        .then( response => {
+          response.json().then( res => {
+            this.catalogList = res
+          })
+        })
+
+    }
+  }
 })
 
 

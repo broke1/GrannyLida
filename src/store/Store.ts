@@ -57,6 +57,10 @@ export const mainStore = defineStore('main', {
       catalogTitle: `<div class="catalog-container_block_title_text">А вот и сами <span class="catalog-container_block_title_text__orange">торты</span> и 
       <span class="catalog-container_block_title_text__orange">пироженные</span></div>`,
       catalogList: [],
+      showCatalogModal: {
+        show: false,
+        index: -1
+      }
     }
   },
   actions: {

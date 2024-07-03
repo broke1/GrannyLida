@@ -15,9 +15,10 @@
       />
       <div class="catalog-container_block_body">
         <div 
-          v-for="item in store.catalogList"
+          v-for="(item, index) in store.catalogList"
           :key="item.name"
           class="catalog-container_block_body_item"
+          @click="handleOpenModal(index)"
         >
           <div class="catalog-container_block_body_item_name_block">
             <div class="catalog-container_block_body_item_name_block_text">
@@ -43,12 +44,14 @@
         </div>
       </div>
     </artical>
+    <CatalogModal />
   </section>
 </template>
 
 <script setup lang="ts">
 
 import {  ref, onMounted, onBeforeUnmount  } from 'vue'
+import CatalogModal from '@/components/CatalogComponent/CatalogModal/CatalogModal.vue'
 import { mainStore } from '@/store/Store'
 
 const store = mainStore()
@@ -79,6 +82,10 @@ onBeforeUnmount(() => {
   observer?.disconnect()
 })
 
+const handleOpenModal = (index: number) => {
+  store.showCatalogModal.index = index
+  store.showCatalogModal.show = true
+}
 </script>
 
 <style src="./CatalogComponent.sass" lang="sass"></style>

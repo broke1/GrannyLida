@@ -24,7 +24,11 @@ export default interface State {
     description: string
     inside: string[],
     mainImg: string
-  }[]
+  }[],
+  showCatalogModal: {
+    show: boolean,
+    index: number
+  }
 }
 
 

@@ -19,9 +19,33 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // '@': fileURLToPath(new URL('./src', import.meta.url))
       '@': resolve(__dirname, 'src')
     }
+  },
+  base: './',
+  build: {
+    outDir: './dist',
+    assetsDir: '.', 
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'js/[name]-[hash].js', 
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames: assetInfo => {
+          const extType = assetInfo.name?.split('.').at(1)
+          if (/\.(png|jpe?g|gif|svg|webp|webm|mp3)$/.test(String(assetInfo.name))) {
+            return `media/[name]-[hash].${extType}`
+          }
+          if (/\.(css)$/.test(String(assetInfo.name))) {
+            return `css/[name]-[hash].${extType}`
+          }
+          if (/\.(woff|woff2|eot|ttf|otf)$/.test(String(assetInfo.name))) {
+            return `fonts/[name]-[hash].${extType}`
+          }
+          return `[name]-[hash].${extType}`
+        },
+      },
+    },
   },
   server: {
     proxy: {

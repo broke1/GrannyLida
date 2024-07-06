@@ -9,9 +9,21 @@
       <div 
         class="catalog-modal-container_block_btn__close"
         @click="handleCloseModal" 
-      />
-      <div class="catalog-modal-container_block_title catalog-modal-container_block_border__bottom">
+      >
+        <img 
+          class="catalog-modal-container_block_btn__close_img"
+          src="@/assets/close.jpg"
+        >
+      </div>
+      <div class="catalog-modal-container_block_title">
         {{ dataModal?.name }}
+      </div>
+      <div class="catalog-modal-container_block_gallery">
+        <img 
+          v-if="dataModal?.gallery.length == 0"
+          class="catalog-modal-container_block_gallery_img"
+          :src="dataModal?.mainImg"
+        >
       </div>
     </div>
   </artical>
@@ -33,12 +45,12 @@ const dataModal = ref({
   shortDescription: '',
   description: '',
   mainImg: '',
-  composition: [] as string[]
+  composition: [] as string[],
+  gallery: [] as string[]
 })
 
 watch([CatalogIndex, CatalogList], () => {
   dataModal.value = CatalogList.value[CatalogIndex.value]
-  console.log('some changed', CatalogIndex.value, CatalogList.value, dataModal.value)
 })
 
 const handleCloseModal = () => {

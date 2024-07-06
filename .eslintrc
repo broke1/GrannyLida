@@ -24,6 +24,7 @@
   "ignorePatterns": [ "dist/**/*", "node_modules/**/*" ],
   "rules": {
       "indent": ["error",2],
+      "no-console": "warn",
       // "semi": ["error", "always"],
       "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
       "import/order": ["error", {

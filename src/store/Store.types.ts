@@ -23,7 +23,8 @@ export default interface State {
     shortDescription: string
     description: string
     mainImg: string
-    composition: string[]
+    composition: string[],
+    gallery: string[]
   }[],
   catalogModal: {
     show: boolean

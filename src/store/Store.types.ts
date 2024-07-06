@@ -18,15 +18,15 @@ export default interface State {
   showCatalog: boolean
   catalogTitle: string
   catalogList: {
-    name: string,
-    price: number,
-    shortDescription: string,
+    name: string
+    price: number
+    shortDescription: string
     description: string
-    inside: string[],
     mainImg: string
+    composition: string[]
   }[],
-  showCatalogModal: {
-    show: boolean,
+  catalogModal: {
+    show: boolean
     index: number
   }
 }

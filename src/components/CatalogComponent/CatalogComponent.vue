@@ -83,8 +83,8 @@ onBeforeUnmount(() => {
 })
 
 const handleOpenModal = (index: number) => {
-  store.showCatalogModal.index = index
-  store.showCatalogModal.show = true
+  store.catalogModal.index = index
+  store.catalogModal.show = true
 }
 </script>
 

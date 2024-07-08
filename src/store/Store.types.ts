@@ -22,7 +22,7 @@ export default interface State {
     price: number
     shortDescription: string
     description: string
-    mainImg: string
+    imgPath: string
     composition: string[],
     gallery: string[]
   }[],

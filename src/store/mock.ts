@@ -4,18 +4,18 @@ const catalogMock = [
     price: 1000,
     shortDescription: 'Лисичкин торт обладает нежной текстурой, которая тает во рту.',
     description: 'Лисичкин торт обладает нежной текстурой, которая тает во рту. Сам торт кисленький за счет ягод, и освежающий за счет мяты',
-    mainImg: '/Catalog/foxCake/main-image.jpg',
+    imgPath: '/Catalog/foxCake/',
     composition: ['безглютеновая мука','тростниковый сахар','банановое молоко','детский смех'],
-    gallery: []
+    gallery: [] as string[]
   },
   {
     name: 'Красный торт',
     price: 1500,
     shortDescription: 'Красный торт состоит из двух совершенно вкусных слоёв.',
     description: 'Красный торт на самом деле красно-белый. Красный слой клубника, белый ваниль',
-    mainImg: '/Catalog/redCake/main-image.jpg',
+    imgPath: '/Catalog/redCake/',
     composition: ['безглютеновая мука','тростниковый сахар','банановое молоко','детский смех', 'красный аплеьсин'],
-    gallery: []
+    gallery: [] as string[]
   }
 ]
 

@@ -28,7 +28,7 @@
           <div class="catalog-container_block_body_item_img_block">
             <img 
               class="catalog-container_block_body_item_img_block_img"
-              :src="item.mainImg"
+              :src="`${item.imgPath}main-image.jpg`"
             >
           </div>
           <div class="catalog-container_block_body_item_description_block">

@@ -24,7 +24,13 @@ export default interface State {
     description: string
     imgPath: string
     composition: string[],
-    gallery: string[]
+    gallery: string[],
+    calories: {
+      protein: string,
+      fats: string,
+      carbo: string,
+      calorie: string
+    }
   }[],
   catalogModal: {
     show: boolean

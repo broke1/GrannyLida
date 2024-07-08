@@ -31,19 +31,53 @@
         v-else
         class="catalog-modal-container_block_gallery"
       >
-        <img 
-          class="catalog-modal-container_block_gallery_img"
-          :src="`${dataModal?.imgPath}${dataModal?.gallery[indexGallery]}`"
+        <Carousel
+          v-model="currentSlide"
+          class="carousel_galery"
         >
-        <button 
-          class="catalog-modal-container_block_gallery_btn catalog-modal-container_block_gallery_btn__forward" 
-          @click="slideGallery('forward')"
-        >
-          <img 
-            class="catalog-modal-container_block_gallery_btn_img"
-            src="@/assets/arrow-right.svg"
+          <Slide 
+            v-for="(slide, index) in dataModal?.gallery" 
+            :key="index"
           >
-        </button>
+            <div class="carousel_item">
+              <img 
+                class="carousel_item_img"
+                :src="`${dataModal?.imgPath}${slide}`"
+              >
+            </div>
+          </Slide>
+        </Carousel>
+
+        <Carousel
+          v-model="currentSlide"
+          class="carousel_thumbnails"
+          :items-to-show="3"
+          :wrap-around="true"
+        >
+          <Slide 
+            v-for="(slide, index) in dataModal?.gallery" 
+            :key="index"
+          >
+            <div 
+              class="carousel_item carousel_item__tumbnail" 
+              :class="{'carousel_item__tumbnail__active': currentSlide == index}"
+              @click="slideTo(index)"
+            >
+              <img 
+                class="carousel_item_img"
+                :src="`${dataModal?.imgPath}${slide}`"
+              >
+            </div>
+          </Slide>
+        </Carousel>
+      </div>
+      <div class="catalog-modal-container_block_description">
+        {{ dataModal?.description }}
+      </div>
+      <div class="catalog-modal-container_block_inside">
+        <div class="catalog-modal-container_block_inside_colories">
+          
+        </div>
       </div>
     </div>
   </artical>
@@ -53,7 +87,10 @@
 
 import { storeToRefs } from 'pinia'
 import {  ref, watch } from 'vue'
+import { Carousel, Slide } from 'vue3-carousel'
 import { mainStore } from '@/store/Store'
+import 'vue3-carousel/dist/carousel.css'
+
 
 const store = mainStore()
 
@@ -66,10 +103,11 @@ const dataModal = ref({
   description: '',
   imgPath: '',
   composition: [] as string[],
-  gallery: [] as string[]
+  gallery: [] as string[],
+  calories: {}
 })
 
-const indexGallery = ref(0)
+const currentSlide = ref(0)
 
 watch([CatalogIndex, CatalogList], () => {
   dataModal.value = CatalogList.value[CatalogIndex.value]
@@ -81,15 +119,9 @@ const handleCloseModal = () => { // закрыть модальное окно
   store.catalogModal.show = false
 }
 
-const slideGallery = (direction: string) => { // перелестнуть картинку в галлерее
-  if (direction == 'forward'){ // если вперед то 
-    indexGallery.value = indexGallery.value == dataModal.value.gallery.length-1 ? 0 : indexGallery.value+1 // смотрим если уже шел до конца то возвращаем в начало
-  } else {
-    indexGallery.value = indexGallery.value == 0 ? dataModal.value.gallery.length-1 : indexGallery.value-1 // смотрим если уже дошел до начала то возвращаем в конец
-  }
-  
+const slideTo = (val: number) => {
+  currentSlide.value = val
 }
-
 
 </script>
 

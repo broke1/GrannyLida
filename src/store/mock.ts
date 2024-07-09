@@ -7,7 +7,7 @@ const catalogMock = [
     imgPath: '/Catalog/foxCake/',
     composition: ['безглютеновая мука','тростниковый сахар','банановое молоко','детский смех'],
     gallery: [] as string[],
-    colories: {
+    calories: {
       protein: '150',
       fats: '270',
       carbo: '70',
@@ -23,7 +23,7 @@ const catalogMock = [
     imgPath: '/Catalog/redCake/',
     composition: ['безглютеновая мука','тростниковый сахар','банановое молоко','детский смех', 'красный аплеьсин'],
     gallery: [] as string[],
-    colories: {
+    calories: {
       protein: '120',
       fats: '250',
       carbo: '50',

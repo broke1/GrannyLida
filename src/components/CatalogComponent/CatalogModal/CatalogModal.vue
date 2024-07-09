@@ -75,9 +75,37 @@
         {{ dataModal?.description }}
       </div>
       <div class="catalog-modal-container_block_inside">
-        <div class="catalog-modal-container_block_inside_colories">
-          
+        <ul class="catalog-modal-container_block_inside_colories">
+          <li class="catalog-modal-container_block_inside_colories_item">
+            {{ `Б:  ${dataModal?.calories.protein} гр.` }}
+          </li>
+          <li class="catalog-modal-container_block_inside_colories_item">
+            {{ `Ж:  ${dataModal?.calories.fats} гр.` }}
+          </li>
+          <li class="catalog-modal-container_block_inside_colories_item">
+            {{ `У:  ${dataModal?.calories.carbo} гр.` }}
+          </li>
+          <li class="catalog-modal-container_block_inside_colories_item catalog-modal-container_block_inside_colories_item__last">
+            {{ `К:  ${dataModal?.calories.calorie} ккал` }}
+          </li>
+        </ul>
+        <div class="catalog-modal-container_block_inside_block">
+          {{ `Состав:  ${dataModal?.composition.join(', ')}` }}
         </div>
+      </div>
+      <div class="catalog-modal-container_block_footer">
+        <button 
+          class="catalog-modal-container_block_footer__close"
+          @click="handleCloseModal"
+        >
+          {{ 'Закрыть' }}
+        </button>
+        <button 
+          class="catalog-modal-container_block_footer__order"
+          @click="handleOrderModal"
+        >
+          {{ 'Заказать торт' }}
+        </button>
       </div>
     </div>
   </artical>
@@ -104,7 +132,12 @@ const dataModal = ref({
   imgPath: '',
   composition: [] as string[],
   gallery: [] as string[],
-  calories: {}
+  calories: {} as {
+    protein: string,
+    fats: string,
+    carbo: string,
+    calorie: string
+  }
 })
 
 const currentSlide = ref(0)
@@ -115,12 +148,18 @@ watch([CatalogIndex, CatalogList], () => {
 
 
 const handleCloseModal = () => { // закрыть модальное окно
-  store.catalogModal.index = -1 
   store.catalogModal.show = false
+  setTimeout(() => { // даем время закрыться а потом меняем индекс потому что иначе инфа пропадает на модалке
+    store.catalogModal.index = -1 
+  },500)
 }
 
-const slideTo = (val: number) => {
-  currentSlide.value = val
+const handleOrderModal = () => {
+  handleCloseModal()
+}
+
+const slideTo = (val: number) => { // перелестнуть слайд
+  currentSlide.value = val // присваиваем переменной выбранное пользователем значение
 }
 
 </script>

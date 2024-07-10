@@ -1,8 +1,17 @@
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import MainPage from './MainPage.vue'
 import '@/mockTest/mockIntersectionObserver'
+
+vi.mock('vue3-carousel', () =>({ // делаем мок карусели
+  Carousel: {
+    template: '<div>Mock Carousel Component</div>'
+  },
+  Slide: {
+    template: '<div>Mock Slide Component</div>'
+  }
+}))
 
 describe('MainPage test', () => {
 

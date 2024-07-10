@@ -18,6 +18,7 @@
           v-for="(item, index) in store.catalogList"
           :key="item.name"
           class="catalog-container_block_body_item"
+          data-testid="catalogTestItemId"
           @click="handleOpenModal(index)"
         >
           <div class="catalog-container_block_body_item_name_block">

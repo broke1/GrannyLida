@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718943966262" clover="3.2.0">
-  <project timestamp="1718943966263" name="All files">
-    <metrics statements="59" coveredstatements="47" conditionals="14" coveredconditionals="4" methods="21" coveredmethods="11" elements="94" coveredelements="62" complexity="0" loc="59" ncloc="59" packages="7" files="7" classes="7"/>
+<coverage generated="1720613214597" clover="3.2.0">
+  <project timestamp="1720613214597" name="All files">
+    <metrics statements="117" coveredstatements="92" conditionals="25" coveredconditionals="11" methods="35" coveredmethods="15" elements="177" coveredelements="118" complexity="0" loc="117" ncloc="117" packages="8" files="8" classes="8"/>
     <package name="components.AboutGranny">
       <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
       <file name="AboutGranny.vue" path="C:/Workspace/GrannyLida/src/components/AboutGranny/AboutGranny.vue">
@@ -13,6 +13,78 @@
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.CatalogComponent">
+      <metrics statements="28" coveredstatements="24" conditionals="6" coveredconditionals="2" methods="7" coveredmethods="4"/>
+      <file name="CatalogComponent.vue" path="C:/Workspace/GrannyLida/src/components/CatalogComponent/CatalogComponent.vue">
+        <metrics statements="28" coveredstatements="24" conditionals="6" coveredconditionals="2" methods="7" coveredmethods="4"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="70" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="77" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="3" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.CatalogComponent.CatalogModal">
+      <metrics statements="32" coveredstatements="23" conditionals="5" coveredconditionals="5" methods="8" coveredmethods="1"/>
+      <file name="CatalogModal.vue" path="C:/Workspace/GrannyLida/src/components/CatalogComponent/CatalogModal/CatalogModal.vue">
+        <metrics statements="32" coveredstatements="23" conditionals="5" coveredconditionals="5" methods="8" coveredmethods="1"/>
+        <line num="1" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="78" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="3" type="stmt"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="92" count="3" type="stmt"/>
+        <line num="123" count="4" type="stmt"/>
+        <line num="125" count="4" type="stmt"/>
+        <line num="127" count="4" type="stmt"/>
+        <line num="143" count="4" type="stmt"/>
+        <line num="145" count="4" type="stmt"/>
+        <line num="146" count="3" type="stmt"/>
+        <line num="150" count="4" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="157" count="4" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="161" count="4" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components.DeliveryComponent">
@@ -91,16 +163,8 @@
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="mockIntersectionObserver.ts" path="C:/Workspace/GrannyLida/src/mockTest/mockIntersectionObserver.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-      </file>
-    </package>
-    <package name="store">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Store.ts" path="C:/Workspace/GrannyLida/src/store/Store.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="6" count="5" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
       </file>
     </package>
   </project>

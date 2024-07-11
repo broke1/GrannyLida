@@ -4,7 +4,10 @@
     :class="{ 'catalog-modal-container__show': store.catalogModal.show }"
     data-testid="catalogModalTestId"
   >
-    <div class="catalog-modal-container_overlay" />
+    <div 
+      class="catalog-modal-container_overlay" 
+      @click="handleCloseModal"
+    />
     <div class="catalog-modal-container_block">
       <div 
         class="catalog-modal-container_block_btn__close"

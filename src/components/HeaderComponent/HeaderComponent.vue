@@ -1,6 +1,6 @@
 <template>
   <section class="header-container">
-    <artical 
+    <article 
       class="header-container_logo"
       :class="{ 'header-container_logo__show': store.showLogo }"
       data-testid="logoTestId"
@@ -9,8 +9,8 @@
         class="header-container_logo_img"
         src="@/assets/logo.jpg"
       >
-    </artical>
-    <artical 
+    </article>
+    <article 
       class="header-container_menu"
       :class="{ 'header-container_menu__show': store.showMenu, 'header-container_menu__scroll': store.isMenuScroll }"
       data-testid="menuTestId"
@@ -28,7 +28,7 @@
       <button class="header-container_menu_button">
         {{ "Заказать торт" }}
       </button>
-    </artical>
+    </article>
   </section>
 </template>
 

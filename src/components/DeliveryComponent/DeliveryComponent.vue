@@ -3,7 +3,7 @@
     id="delivery" 
     class="delivery-container" 
   >
-    <artical 
+    <article 
       ref="target"
       class="delivery-container_block"
       :class="{ 'delivery-container_block__show': store.showDelivery }"
@@ -27,7 +27,7 @@
           />
         </div>
       </div>
-    </artical>
+    </article>
   </section>
 </template>
 

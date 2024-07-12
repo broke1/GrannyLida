@@ -1,6 +1,6 @@
 <template>
   <section class="about-granny-container">
-    <artical 
+    <article 
       class="about-granny-container_block"
       :class="{ 'about-granny-container_block__show': store.showAboutGranny }"
       data-testid="aboutGrannyTestId"
@@ -9,7 +9,7 @@
         class="about-granny-container_block_text"
         v-html="store.aboutGrannyText"
       />
-    </artical>
+    </article>
   </section>
 </template>
 

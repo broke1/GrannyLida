@@ -3,7 +3,7 @@
     id="catalog" 
     class="catalog-container" 
   >
-    <artical 
+    <article 
       ref="target"
       class="catalog-container_block"
       :class="{ 'catalog-container_block__show': store.showCatalog }"
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-    </artical>
+    </article>
     <CatalogModal />
   </section>
 </template>

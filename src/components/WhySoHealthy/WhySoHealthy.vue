@@ -3,7 +3,7 @@
     id="why-so-healthy" 
     class="why-so-healthy-container" 
   >
-    <artical 
+    <article 
       ref="target"
       class="why-so-healthy-container_block"
       :class="{ 'why-so-healthy-container_block__show': store.showWhySoHealthy }"
@@ -40,7 +40,7 @@
           >
         </div>
       </div>
-    </artical>
+    </article>
   </section>
 </template>
 

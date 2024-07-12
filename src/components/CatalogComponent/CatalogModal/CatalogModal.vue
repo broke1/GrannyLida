@@ -1,5 +1,5 @@
 <template>
-  <artical 
+  <article 
     class="catalog-modal-container"
     :class="{ 'catalog-modal-container__show': store.catalogModal.show }"
     data-testid="catalogModalTestId"
@@ -111,7 +111,7 @@
         </button>
       </div>
     </div>
-  </artical>
+  </article>
 </template>
 
 <script setup lang="ts">

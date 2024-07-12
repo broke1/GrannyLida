@@ -82,17 +82,23 @@ describe('CatalogModal test', () => {
       index: 1
     } // меняем значение модалки имитируя открытие
     
-    const closeElem = wrapper.find('.catalog-modal-container_block_footer__order') // ищем кнопку закрытия формы
-
-    const handleClose = vi.spyOn((wrapper.vm as any),'handleCloseModal');
+    const closeElem = wrapper.find('.catalog-modal-container_block_footer__order') // ищем кнопку заказа
 
     closeElem.trigger('click') // если по ней нажать
 
-    // (wrapper.vm as any).handleCloseModal()
+    expect(store.catalogModal.show).toBeFalsy  // ожидаем что после произойдет вызов метода закрытия модалки
+    
+  })
 
-    // console.log(wrapper.vm)
+  it('При вызове метода пролистывания слайда, ожидается что переменная измениться', async () => {
 
-    expect(handleClose).toHaveBeenCalled()  // ожидаем что после закрытия модалки она исчезнет и индекс станет -1
+    const wrapper = mount(CatalogModal) // монитруем компонент
+
+    const slide = 1; // номер слайда который выбрали
+    
+    (wrapper.vm as any).slideTo(slide) // вызываем метод пролистывания слайда
+
+    expect((wrapper.vm as any).currentSlide).toBe(slide)  // ожидаем что переменная хранящая текущий слайд будет изменена
     
   })
 

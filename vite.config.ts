@@ -15,13 +15,15 @@ export default defineConfig({
       exclude: ['./node_modules/**'],
       cache: false
     }),
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => ['router-link'].includes(tag)
-        }
-      }
-    })
+    vue(
+      // {
+      //   template: {
+      //     compilerOptions: {
+      //       isCustomElement: (tag) => ['router-link'].includes(tag)
+      //     }
+      //   }
+      // }
+    )
   ],
   resolve: {
     alias: {

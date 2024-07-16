@@ -26,7 +26,12 @@
         </router-link>
       </div>
       <button class="header-container_menu_button">
-        {{ "Заказать торт" }}
+        <router-link 
+          class="header-container_menu_button_item"
+          :to="{ name: 'MainPage', hash: '#contacts' }"
+        >
+          {{ "Заказать торт" }}
+        </router-link>
       </button>
     </article>
   </section>

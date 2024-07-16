@@ -20,7 +20,7 @@ export const mainStore = defineStore('main', {
           name: 'Каталог'
         },
         {
-          url: '#why-so-healthy',
+          url: '#contacts',
           name: 'Контакты'
         }],
       isMenuScroll: false,
@@ -60,7 +60,15 @@ export const mainStore = defineStore('main', {
       catalogModal: {
         show: false,
         index: -1
-      }
+      },
+      showContacts: false,
+      contactsTitle: `
+        <div class="contacts-container_block_title_text">Как со мной <span class="contacts-container_block_title_text__orange">связаться</span>?
+        </div>`,
+      contactsList: [
+        {img: 'src/assets/watsapp.png',  text: '+7 916 853-52-82', link: 'https://wa.me/+79168535282'},
+        {img: 'src/assets/telegram.png',  text: '+7 916 853-52-82', link: 'https://t.me/+79168535282'}
+      ]
     }
   },
   getters: {

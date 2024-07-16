@@ -23,19 +23,26 @@ export default interface State {
     shortDescription: string
     description: string
     imgPath: string
-    composition: string[],
-    gallery: string[],
+    composition: string[]
+    gallery: string[]
     calories: {
-      protein: string,
-      fats: string,
-      carbo: string,
+      protein: string
+      fats: string
+      carbo: string
       calorie: string
     }
   }[],
   catalogModal: {
     show: boolean
     index: number
-  }
+  },
+  showContacts: boolean
+  contactsTitle: string
+  contactsList: {
+    img: string
+    text: string
+    link: string
+  }[]
 }
 
 

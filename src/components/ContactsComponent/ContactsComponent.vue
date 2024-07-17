@@ -37,9 +37,9 @@
             </div>
           </a>
         </div>
-        <!-- <div class="contacts-container_block_body_right_part">
-          
-        </div> -->
+        <div class="contacts-container_block_body_right_part">
+          <ContactsForm />
+        </div>
       </div>
     </article>
   </section>
@@ -48,7 +48,9 @@
 <script setup lang="ts">
 
 import {  ref, onMounted, onBeforeUnmount  } from 'vue'
+import ContactsForm from './ContactsForm/ContactsForm.vue'
 import { mainStore } from '@/store/Store'
+
 
 const store = mainStore()
 

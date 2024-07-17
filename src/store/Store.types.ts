@@ -42,7 +42,14 @@ export default interface State {
     img: string
     text: string
     link: string
-  }[]
+  }[],
+  contactsForm: {
+    title: string
+    name: string
+    phone: string
+    comments: string
+    aggrement: boolean
+  }
 }
 
 

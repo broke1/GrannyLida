@@ -1,0 +1,104 @@
+@import "@/styles/main"
+@import "@/styles/animation"
+  
+.contacts-form
+
+  &_block
+    width: 100%
+    height: 100%
+    opacity: 0
+    transition: $transition
+    transform: translateX(100%)
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    align-items: center
+
+    &__show
+      animation: show_title 0.4s linear
+      animation-fill-mode: forwards
+
+    &_title
+      width: 100%
+      text-align: center
+      margin-bottom: 20px
+
+      &_text
+        font-size: 2rem
+        line-height: 2.4rem
+        color: $black
+
+        &__orange
+          color: $peach
+
+    &_item
+      margin-top: 30px
+      border-radius: 20px
+      border: 2px solid $peach-back
+      padding: 20px
+      width: 400px
+      font-size: 1.8rem
+      line-height: 2rem
+      color: $overlay
+      outline: none
+      font-family: $font
+
+      &_textarea
+        resize: none
+
+    &_agrement
+      display: flex
+      flex-flow: row nowrap
+      justify-content: flex-start
+      align-items: center
+      gap: 20px
+      width: calc(400px + 40px)
+      margin-top: 30px
+
+      &_checkbox
+        // display: none
+        position: absolute
+        z-index: -1
+        opacity: 0
+
+      &_checkbox + label
+        // z-index: -1
+        // opacity: 0
+        position: relative
+        margin-left: 40px
+
+        &::before
+          content: ''
+          width: 30px
+          height: 30px
+          cursor: pointer
+          position: absolute
+          left: -40px
+          top: 50%
+          transform: translateY(-50%)
+          background: url("@/assets/checkbox.png") no-repeat
+          background-size: 100%
+
+      &_checkbox
+
+        &:checked + label::before 
+          background: url("@/assets/checkbox-checked.png") no-repeat
+          background-size: 100%
+
+      &_text
+        font-size: 1rem
+        line-height: 1.2rem
+        color: $black
+
+        span
+          color: $peach-back
+          cursor: pointer
+
+    
+    
+
+
+  
+
+
+      

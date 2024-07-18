@@ -77,12 +77,22 @@ export const mainStore = defineStore('main', {
         phone: '',
         comments: '',
         aggrement: false,
+        warning: {
+          show: false,
+          text: 'К сожалению отправить данные не удалось, попробуйте ещё раз',
+          success: false
+        }
       }
     }
   },
   getters: {
     CatalogList: (state) => state.catalogList,
-    CatalogIndex: (state) => state.catalogModal.index
+    CatalogIndex: (state) => state.catalogModal.index,
+    ContactForm: (state) => { return {
+      name: state.contactsForm.name,
+      phone: state.contactsForm.phone,
+      comments: state.contactsForm.comments,
+    }}
   },
   actions: {
     async getCatalogList() {
@@ -91,6 +101,30 @@ export const mainStore = defineStore('main', {
         .then( response => {
           response.json().then( res => {
             this.catalogList = res
+          })
+        })
+
+    },
+    async sendOrder() {
+
+     
+
+      const {  name, phone, comments } = this.contactsForm
+      
+      await fetch('/api/sendOrder',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          comments
+        }),
+      })
+        .then( response => {
+          response.json().then( res => {
+            console.log(res)
           })
         })
 

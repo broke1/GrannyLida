@@ -49,6 +49,11 @@ export default interface State {
     phone: string
     comments: string
     aggrement: boolean
+    warning: {
+      show: boolean
+      text: string
+      success: boolean
+    }
   }
 }
 

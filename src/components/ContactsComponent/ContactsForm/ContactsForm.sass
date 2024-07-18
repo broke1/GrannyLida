@@ -90,9 +90,41 @@
         line-height: 1.2rem
         color: $black
 
-        span
+        a
           color: $peach-back
           cursor: pointer
+          text-decoration: none
+
+    &_warning
+      width: 400px
+      font-size: 1.2rem
+      line-height: 1.4rem
+      color: $peach
+      opacity: 0
+      transition: $transition
+      text-align: center
+      margin: 30px 0
+
+      &__success
+        color: $peach-back
+
+      &__show
+        opacity: 1
+
+    &_order_btn
+      background: $peach-back
+      color: $white
+      border-radius: 20px
+      padding: 25px 20px
+      cursor: pointer
+      font-family: $font
+      border: none
+      white-space: nowrap
+      text-transform: uppercase
+      margin-bottom: 50px
+      font-size: 1.4rem
+      line-height: 1.8rem
+
 
     
     

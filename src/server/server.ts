@@ -40,6 +40,12 @@ app.get('/api/getCatalogList', (_req, res) => {
   res.status(200).json(catalogMock)
 })
 
+// метод отправки данных на почту
+app.post('/api/sendOrder', (req, res) => {
+
+  res.status(200).json(req.body)
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })

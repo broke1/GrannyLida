@@ -107,26 +107,47 @@ export const mainStore = defineStore('main', {
     },
     async sendOrder() {
 
-     
+      const {  name, phone, comments, warning, aggrement } = this.contactsForm
 
-      const {  name, phone, comments } = this.contactsForm
+      warning.show = false 
       
-      await fetch('/api/sendOrder',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          phone,
-          comments
-        }),
-      })
-        .then( response => {
-          response.json().then( res => {
-            console.log(res)
-          })
+      if (name == ''){
+        warning.success = false
+        warning.text = 'Пожалуйста введите Ваше имя'
+        warning.show = true
+      } else if (phone == '') {
+        warning.success = false
+        warning.text = 'Пожалуйста введите Ваш телефон'
+        warning.show = true
+      } else if (!aggrement) {
+        warning.success = false
+        warning.text = 'Пожалуйста согласитесь на обработку данных'
+        warning.show = true
+      }else {
+
+        await fetch('/api/sendOrder',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            comments
+          }),
         })
+          .then( response => {
+            response.json().then( () => {
+              warning.success = true
+              warning.text = 'Ваше письмо успешно отправлено'
+              warning.show = true
+              setTimeout( () => {
+                warning.show = false
+              },3000)
+            })
+          })
+
+      }
 
     }
   }

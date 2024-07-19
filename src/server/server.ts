@@ -4,7 +4,9 @@ import { fileURLToPath } from 'url'
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
+import nodemailer from 'nodemailer'
 import catalogMock from '../store/mock.ts'
+
 
 const app = express()
 
@@ -43,7 +45,39 @@ app.get('/api/getCatalogList', (_req, res) => {
 // метод отправки данных на почту
 app.post('/api/sendOrder', (req, res) => {
 
-  res.status(200).json(req.body)
+  const transporter = nodemailer.createTransport({ // создаем настройки сервера отправки писем
+    host: 'smtp.yandex.ru',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.USERMAIL, // логин и пароль берем из файла env
+      pass: process.env.PASSMAIL,
+    },
+  })
+
+  const mailOptions = {  // создаем настройки самого письма
+    from: 'broke1@yandex.ru', // откуда оптравляем
+    to: 'broke1@yandex.ru', // кому отправляем
+    subject: 'CrannyLida Заказ', // Тема письма
+    // текст письма
+    html: `<div style="font-size: 20px;"> 
+      <p><b>Имя</b>:    ${req.body.name}</p>
+      <p><b>Телефон</b>:    ${req.body.phone}</p>
+      <p><b>Комментарий</b>:    ${req.body.comments}</p>
+    </div>`
+  }
+
+  transporter.sendMail(mailOptions, function (err, data) { // метод отправки письма
+    if (err) {
+      res.status(500).json(err) // если ошибка возвращаем её с кодом 500
+      console.log(`Error ${err}`)
+    } else {
+      res.status(200).json(data) // если все успешно с кодом 200
+      console.log('Email sent successfully')
+    }
+  })
+
+  
 })
 
 app.listen(PORT, () => {

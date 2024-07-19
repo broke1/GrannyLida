@@ -12,13 +12,13 @@
     <input 
       v-model.trim="store.contactsForm.name"
       class="contacts-form_block_item"
-      placeholder="Имя"
+      placeholder="Имя  (обязательно)"
       type="text"
     >
     <MaskInput 
       v-model="store.contactsForm.phone" 
       class="contacts-form_block_item"
-      placeholder="Телефон"
+      placeholder="Телефон  (обязательно)"
       type="text"
       mask="+7 (###) ###-##-##" 
     />

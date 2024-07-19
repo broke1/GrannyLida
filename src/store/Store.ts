@@ -69,6 +69,7 @@ export const mainStore = defineStore('main', {
         {img: 'src/assets/watsapp.png',  text: '+7 916 853-52-82', link: 'https://wa.me/+79168535282'},
         {img: 'src/assets/telegram.png',  text: '+7 916 853-52-82', link: 'https://t.me/+79168535282'}
       ],
+      contactsPhone: '+7 916 853-52-82',
       contactsForm: {
         title: `
         <div class="contacts-container_block_title_text">Напиши мне и я обязательно приготовлю торт <span class="contacts-container_block_title_text__orange">твоей мечты</span>

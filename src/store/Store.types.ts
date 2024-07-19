@@ -43,6 +43,7 @@ export default interface State {
     text: string
     link: string
   }[],
+  contactsPhone: string
   contactsForm: {
     title: string
     name: string

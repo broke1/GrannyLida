@@ -15,31 +15,52 @@
       />
       <div class="contacts-container_block_body">
         <div class="contacts-container_block_body_left_part">
-          <a 
-            v-for="(item, index) in store.contactsList"
-            :key="item.text"
-            :href="item.link"
-            target="_blank"
-            class="contacts-container_block_body_left_part_row"
-            :style="{ animationDelay: (0.3 * index + 0.5) + 's' }"
-            :class="{'contacts-container_block_body_left_part_row__show': store.showContacts}"
+          <div 
+            class="contacts-container_block_body_left_part_messengers"
           >
-            <div 
-              class="contacts-container_block_body_left_part_row_img"
+            <a 
+              v-for="(item, index) in store.contactsList"
+              :key="item.text"
+              :href="item.link"
+              target="_blank"
+              class="contacts-container_block_body_left_part_messengers_row"
+              :style="{ animationDelay: (0.3 * index + 0.5) + 's' }"
+              :class="{'contacts-container_block_body_left_part_messengers_row__show': store.showContacts}"
             >
-              <img 
-                v-show="item.img != ''"
-                :src="item.img" 
+              <div 
+                class="contacts-container_block_body_left_part_messengers_row_img"
               >
-            </div>
-            <div class="contacts-container_block_body_left_part_row_text">
-              {{ item.text }}
-            </div>
-          </a>
+                <img 
+                  v-show="item.img != ''"
+                  :src="item.img" 
+                >
+              </div>
+              <div class="contacts-container_block_body_left_part_messengers_row_text">
+                {{ item.text }}
+              </div>
+            </a>
+          </div>
+          <div 
+            class="contacts-container_block_body_left_part_img"
+            :class="{'contacts-container_block_body_left_part_img__show': store.showContacts}"
+          >
+            <img 
+              class="contacts-container_block_body_left_part_img_in"
+              src="@/assets/contacts.jpg"
+            >
+          </div>
         </div>
         <div class="contacts-container_block_body_right_part">
           <ContactsForm />
         </div>
+      </div>
+    </article>
+    <article class="contacts-container_signature">
+      <div class="contacts-container_signature_copyright">
+        {{ "GrannyLida.ru (c)  2024 г" }}
+      </div>
+      <div class="contacts-container_signature_autor">
+        {{ "made by fred_apriori" }}
       </div>
     </article>
   </section>

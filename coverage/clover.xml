@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1720758985810" clover="3.2.0">
-  <project timestamp="1720758985811" name="All files">
-    <metrics statements="112" coveredstatements="93" conditionals="25" coveredconditionals="11" methods="32" coveredmethods="17" elements="169" coveredelements="121" complexity="0" loc="112" ncloc="112" packages="8" files="8" classes="8"/>
+<coverage generated="1721628314274" clover="3.2.0">
+  <project timestamp="1721628314274" name="All files">
+    <metrics statements="142" coveredstatements="118" conditionals="41" coveredconditionals="23" methods="40" coveredmethods="22" elements="223" coveredelements="163" complexity="0" loc="142" ncloc="142" packages="10" files="10" classes="10"/>
     <package name="components.AboutGranny">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="AboutGranny.vue" path="C:/Workspace/GrannyLida/src/components/AboutGranny/AboutGranny.vue">
@@ -84,6 +84,47 @@
         <line num="165" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="components.ContactsComponent">
+      <metrics statements="21" coveredstatements="17" conditionals="6" coveredconditionals="2" methods="5" coveredmethods="2"/>
+      <file name="ContactsComponent.vue" path="C:/Workspace/GrannyLida/src/components/ContactsComponent/ContactsComponent.vue">
+        <metrics statements="21" coveredstatements="17" conditionals="6" coveredconditionals="2" methods="5" coveredmethods="2"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
+        <line num="88" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="95" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.ContactsComponent.ContactsForm">
+      <metrics statements="8" coveredstatements="7" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+      <file name="ContactsForm.vue" path="C:/Workspace/GrannyLida/src/components/ContactsComponent/ContactsForm/ContactsForm.vue">
+        <metrics statements="8" coveredstatements="7" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <line num="1" count="3" type="cond" truecount="8" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="57" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="6" type="stmt"/>
+      </file>
+    </package>
     <package name="components.DeliveryComponent">
       <metrics statements="15" coveredstatements="11" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="1"/>
       <file name="DeliveryComponent.vue" path="C:/Workspace/GrannyLida/src/components/DeliveryComponent/DeliveryComponent.vue">
@@ -106,22 +147,23 @@
       </file>
     </package>
     <package name="components.HeaderComponent">
-      <metrics statements="13" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="3"/>
       <file name="HeaderComponent.vue" path="C:/Workspace/GrannyLida/src/components/HeaderComponent/HeaderComponent.vue">
-        <metrics statements="13" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <metrics statements="14" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="3"/>
         <line num="2" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="12" type="stmt"/>
         <line num="25" count="12" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
     </package>
     <package name="components.MainPage">
@@ -158,8 +200,8 @@
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="mockIntersectionObserver.ts" path="C:/Workspace/GrannyLida/src/mockTest/mockIntersectionObserver.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
       </file>
     </package>
   </project>

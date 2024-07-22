@@ -61,7 +61,7 @@ describe('CatalogModal test', () => {
 
     closeElem.trigger('click') // если по ней нажать
 
-    vi.advanceTimersByTime(500) // ждем две секунды так же как в компоненте
+    vi.advanceTimersByTime(500) // ждем пол секунды так же как в компоненте
 
     expect(store.catalogModal).toEqual({show: false, index: -1})  // ожидаем что после закрытия модалки она исчезнет и индекс станет -1
     

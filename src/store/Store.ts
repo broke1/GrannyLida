@@ -100,9 +100,11 @@ export const mainStore = defineStore('main', {
       
       await fetch('/api/getCatalogList')
         .then( response => {
-          response.json().then( res => {
-            this.catalogList = res
-          })
+          if ([200,204].includes(response.status)){
+            response.json().then( res => {
+              this.catalogList = res
+            })
+          }
         })
 
     },
@@ -126,6 +128,8 @@ export const mainStore = defineStore('main', {
         warning.show = true
       }else {
 
+       
+
         await fetch('/api/sendOrder',{
           method: 'POST',
           headers: {
@@ -138,14 +142,26 @@ export const mainStore = defineStore('main', {
           }),
         })
           .then( response => {
-            response.json().then( () => {
-              warning.success = true
-              warning.text = 'Ваше письмо успешно отправлено'
+            if ([200,204].includes(response.status)){
+              response.json().then( () => {
+                warning.success = true
+                warning.text = 'Ваше письмо успешно отправлено'
+                warning.show = true
+                setTimeout( () => {
+                  warning.show = false
+                },3000)
+              })
+            } else {
+              warning.success = false
+              warning.text = 'К сожалению, письмо отправить не удалось. Попробуйте еще раз.'
               warning.show = true
-              setTimeout( () => {
-                warning.show = false
-              },3000)
-            })
+            }
+            
+          })
+          .catch(() => {
+            warning.success = false
+            warning.text = 'К сожалению, письмо отправить не удалось. Попробуйте еще раз.'
+            warning.show = true
           })
 
       }

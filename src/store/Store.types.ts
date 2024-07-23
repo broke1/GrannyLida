@@ -1,4 +1,4 @@
-export default interface State {
+export interface State {
   showLogo: boolean
   showMenu: boolean
   menuList: {name: string, url: string}[]
@@ -55,6 +55,16 @@ export default interface State {
       text: string
       success: boolean
     }
+  }
+}
+
+export interface AdminState {
+  needAuth: boolean
+  authForm: {
+    show: boolean
+    login: string
+    pass: string
+    type: string
   }
 }
 

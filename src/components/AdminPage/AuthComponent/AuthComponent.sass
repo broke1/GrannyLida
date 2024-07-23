@@ -1,0 +1,60 @@
+@import "@/styles/main"
+  
+.auth-component 
+  width: auto
+  height: auto
+  background: $white
+  border-radius: 20px
+  position: absolute
+  top: 0
+  left: 50%
+  transform: translate(-50%)
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  align-items: center
+  opacity: 0
+  transition: $transition
+  padding: 40px 60px
+
+  &__show
+    opacity: 1
+    top: 150px
+
+  &_item
+    border-radius: 20px
+    border: 2px solid $peach-back
+    padding: 20px
+    width: 300px
+    font-size: 1.8rem
+    line-height: 2rem
+    color: $overlay
+    outline: none
+    font-family: $font
+    margin-bottom: 40px
+
+  &_row
+    position: relative
+
+  &_img
+    width: 30px
+    height: 30px
+    border: 2px solid black
+    cursor: pointer
+    position: absolute
+    top: 22px
+    right: 20px
+
+  &_button
+    background: $peach-back
+    color: $white
+    border-radius: 20px
+    padding: 25px 60px
+    cursor: pointer
+    font-family: $font
+    border: none
+    white-space: nowrap
+    text-transform: uppercase
+    font-size: 1.4rem
+    line-height: 1.8rem
+

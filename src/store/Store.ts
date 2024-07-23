@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import State from './Store.types'
+import { State } from './Store.types'
 
 export const mainStore = defineStore('main', {
   state: (): State => {

@@ -19,9 +19,25 @@
         :type="store.authForm.type"
       >
       <div 
-        class="auth-component_img" 
+        class="auth-component_img"
+        :class="{'auth-component_img__show': store.authForm.type == 'text'}" 
         @click="handleToogleShowPass"
       />
+    </div>
+    <div 
+      class="auth-component_warn"
+      :class="{'auth-component_warn__show': store.authForm.warning.show}" 
+    >
+      <div 
+        v-show="store.authForm.preloader"
+        class="auth-component_warn_preloader" 
+      />
+      <div 
+        v-show="!store.authForm.preloader"
+        class="auth-component_warn_text" 
+      >
+        {{ store.authForm.warning.text }} 
+      </div>
     </div>
     <button 
       class="auth-component_button"

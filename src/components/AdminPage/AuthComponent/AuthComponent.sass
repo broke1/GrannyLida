@@ -16,6 +16,7 @@
   opacity: 0
   transition: $transition
   padding: 40px 60px
+  gap: 40px
 
   &__show
     opacity: 1
@@ -31,7 +32,6 @@
     color: $overlay
     outline: none
     font-family: $font
-    margin-bottom: 40px
 
   &_row
     position: relative
@@ -39,11 +39,41 @@
   &_img
     width: 30px
     height: 30px
-    border: 2px solid black
     cursor: pointer
     position: absolute
     top: 22px
     right: 20px
+    background-image: url("@/assets/eye-closed.svg") 
+    background-repeat: no-repeat
+    transition: $transition
+    background-size: cover
+
+    &__show
+      background-image: url("@/assets/eye-open.svg")
+
+  &_warn
+    width: 100%
+    height: 30px
+    color: $peach
+    font-size: 1.2rem
+    line-height: 1.6rem
+    transition: $transition
+    opacity: 0
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: center
+
+    &_preloader
+      width: 30px
+      height: 30px
+      background-image: url("@/assets/preloader.svg") 
+      background-repeat: no-repeat
+      background-size: cover
+      animation: spin 2s ease 0s infinite
+
+    &__show
+      opacity: 1
 
   &_button
     background: $peach-back

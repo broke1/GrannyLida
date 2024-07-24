@@ -9,7 +9,12 @@ export const adminStore = defineStore('main', {
         show: false,
         login: '',
         pass: '',
-        type: 'password'
+        type: 'password',
+        warning: {
+          show: false,
+          text: ''
+        },
+        preloader: false
       }
     }
   },
@@ -18,6 +23,14 @@ export const adminStore = defineStore('main', {
   },
   actions: {
     async checkAuth() {
+
+      this.authForm.preloader = true
+      this.authForm.warning.show = true
+      this.authForm.warning.text = 'Введенный логин или пароль не верны'
+
+      setTimeout(() => {
+        this.authForm.preloader = false
+      },3000)
       
       // const {  login, pass } = this.authForm
 

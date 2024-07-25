@@ -24,19 +24,16 @@
         @click="handleToogleShowPass"
       />
     </div>
-    <div 
-      class="auth-component_warn"
-      :class="{'auth-component_warn__show': store.authForm.warning.show}" 
-    >
+    <div class="auth-component_warn">
       <div 
-        v-show="store.authForm.preloader"
-        class="auth-component_warn_preloader" 
+        class="auth-component_warn_preloader"
+        :class="{'auth-component_warn_preloader__show': store.authForm.preloader}" 
       />
       <div 
-        v-show="!store.authForm.preloader"
-        class="auth-component_warn_text" 
+        class="auth-component_warn_text"
+        :class="{'auth-component_warn_text__show': !store.authForm.preloader}"
       >
-        {{ store.authForm.warning.text }} 
+        {{ store.authForm.warning }} 
       </div>
     </div>
     <button 

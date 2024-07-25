@@ -58,11 +58,11 @@
     font-size: 1.2rem
     line-height: 1.6rem
     transition: $transition
-    opacity: 0
     display: flex
     flex-flow: row nowrap
     justify-content: center
     align-items: center
+    position: relative
 
     &_preloader
       width: 30px
@@ -71,9 +71,24 @@
       background-repeat: no-repeat
       background-size: cover
       animation: spin 2s ease 0s infinite
+      opacity: 0
+      z-index: -1
+      transition: $transition
+      position: absolute
 
-    &__show
-      opacity: 1
+      &__show
+        opacity: 1
+        z-index: 2
+    
+    &_text
+      opacity: 0
+      z-index: -1
+      transition: $transition
+
+      &__show
+        opacity: 1
+        z-index: 1
+
 
   &_button
     background: $peach-back

@@ -3,7 +3,7 @@
 <template>
   <section class="adminPage-page">
     <AuthComponent 
-      v-if="store.needAuth"
+      v-show="store.needAuth"
     />
     <div class="adminPage-page_container">
       

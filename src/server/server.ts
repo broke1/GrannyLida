@@ -5,8 +5,32 @@ import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import nodemailer from 'nodemailer'
+import sqlite3 from 'sqlite3'
 import catalogMock from '../store/mock.ts'
 
+
+// подключение к БД
+const SQLite3 = sqlite3.verbose()
+const db = new SQLite3.Database('grannyLida.db', (err) => {
+  if (err) {
+    console.error(err.message)
+    return
+  }
+  console.log('Connected to the database.')
+})
+
+// // метод обертка для работы с БД
+// const query = (method = 'all', command: string) => {
+//   return new Promise((resolve, reject) => {
+//     (db as any)[method](command, (error: string, result: string) => {
+//       if (error) {
+//         reject(error)
+//       } else {
+//         resolve(result)
+//       }
+//     })
+//   })
+// }
 
 const app = express()
 
@@ -19,6 +43,46 @@ const PORT = process.env.PORT
 // Получаем путь до папки с картинками
 const  __dirname = dirname(fileURLToPath(import.meta.url))
 const baseDir = path.resolve(__dirname + '/../..')
+
+// метод проверяет пользователя на вход
+app.post('/api/checkAuth', (req, res) => {
+
+  // db.serialize(async () => {
+  //   await db.run('create table if not exists users (id integer primary key, login text, pass text, role text)', (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Table is created')
+  //   })
+  // })
+
+  // db.serialize(async () => {
+  //   await db.run('insert into users values (0, "admin", "admin", "admin")', (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Row is inserted')
+  //   })
+  // })
+
+  db.serialize(async () => {
+    await db.get(`select * from users where login = "${req.body.login}" and pass = "${req.body.pass}"`, (err, row) => {
+      if (err) {
+        res.status(500).json(err.message)
+        return
+      }
+      if (row){
+        res.status(200).json(`user is exists`)
+      } else {
+        res.status(500).json(`user is not exists`)
+      }
+    })
+  })
+ 
+  
+})
 
 // метод возвращает каталог тортов
 app.get('/api/getCatalogList', (_req, res) => {
@@ -83,3 +147,12 @@ app.post('/api/sendOrder', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
+
+// закрываем соединение с БД
+// db.close((err) => {
+//   if (err) {
+//     console.error(err.message)
+//     return;
+//   }
+//   console.log('Connection closed.')
+// })

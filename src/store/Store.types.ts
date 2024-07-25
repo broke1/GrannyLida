@@ -65,10 +65,7 @@ export interface AdminState {
     login: string
     pass: string
     type: string
-    warning: {
-      show: boolean
-      text: string
-    }
+    warning: string
     preloader: boolean
   }
 }

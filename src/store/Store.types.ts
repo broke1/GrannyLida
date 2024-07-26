@@ -67,6 +67,11 @@ export interface AdminState {
     type: string
     warning: string
     preloader: boolean
+  },
+  addCardForm: {
+    name: string
+    price: number | null
+    shortDescription: string
   }
 }
 

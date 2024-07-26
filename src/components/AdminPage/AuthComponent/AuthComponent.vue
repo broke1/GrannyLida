@@ -17,6 +17,7 @@
         class="auth-component_item"
         placeholder="Пароль"
         :type="store.authForm.type"
+        @keyup.enter="store.checkAuth()"
       >
       <div 
         class="auth-component_img"
@@ -49,6 +50,7 @@
 
 import { onMounted } from 'vue'
 import { adminStore } from '@/store/StoreAdmin'
+
 
 const store = adminStore()
 

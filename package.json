@@ -49,6 +49,7 @@
     "vitest": "^1.6.0",
     "vue-eslint-parser": "^9.4.3",
     "vue-router": "^4.3.3",
-    "vue-tsc": "^2.0.20"
+    "vue-tsc": "^2.0.20",
+    "vue3-cookies": "^1.0.6"
   }
 }

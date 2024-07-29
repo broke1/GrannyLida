@@ -8,8 +8,8 @@
   &_block
     display: grid
     grid-template-columns: 2fr 1fr
-    grid-template-rows: repeat(5, auto)
-    grid-template-areas: 'name  price' 'shortDes shortDes' 'fullDes fullDes' 'composition composition' 'gallery gallery'
+    grid-template-rows: repeat(6, auto)
+    grid-template-areas: 'name  price' 'shortDes shortDes' 'fullDes fullDes' 'composition composition' 'gallery gallery' 'calories calories'
     gap: 40px
     height: 76vh
     overflow-y: auto
@@ -21,6 +21,9 @@
       justify-content: flex-start
       align-items: flex-start
       gap: 20px
+
+      &_small
+        width: 250px
 
       &_label
         font-size: 1.6rem
@@ -58,6 +61,10 @@
       
       &_gallery
         grid-area: gallery
+
+      &_calories
+        grid-area: calories
+
 
       &_files
         display: flex
@@ -130,14 +137,58 @@
           font-size: 0.8rem
           line-height: 1rem
 
+      &_calories_block
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        align-content: center
+        justify-items: center
+        gap: 30px
+
   &_btn_row
     display: flex
     flex-flow: row nowrap
-    justify-content: flex-end
+    justify-content: flex-start
     align-items: center
     padding-top: 30px
 
+    &_warning
+      display: flex
+      flex-flow: row
+      justify-content: center
+      align-items: center
+      flex: 1
+      height: 35px
+
+      &_text
+        font-size: 1.3rem
+        line-height: 1.5rem
+        color: $peach
+        opacity: 0
+        transition: $transition
+        z-index: 1
+
+        &__show
+          opacity: 1
+      
+      &_preloader
+        width: 30px
+        height: 30px
+        background-image: url("@/assets/preloader.svg") 
+        background-repeat: no-repeat
+        background-size: cover
+        animation: spin 2s ease 0s infinite
+        opacity: 0
+        z-index: -1
+        transition: $transition
+        position: absolute
+
+        &__show
+          opacity: 1
+          z-index: 2
+
     &_button
+      flex: 0
       background: $peach-back
       color: $white
       border-radius: 20px

@@ -62,6 +62,7 @@
           <label class="add-card-component_block_item_file_upload">
             <input 
               type="file" 
+              name="filesImgs"
               multiple
               @change="addPhoto"
             >
@@ -89,8 +90,67 @@
           </div>
         </div>
       </div> 
+      <div class="add-card-component_block_item add-card-component_block_item_calories">
+        <div class="add-card-component_block_item_label">
+          {{ 'КБЖУ' }}
+        </div>
+        <div class="add-card-component_block_item_value add-card-component_block_item_calories_block">
+          <div class="add-card-component_block_item add-card-component_block_item_small">
+            <div class="add-card-component_block_item_label">
+              {{ 'Белки' }}
+            </div>
+            <input 
+              v-model.trim="store.addCardForm.calories.protein"
+              class="add-card-component_block_item_value"
+              type="text"
+            >
+          </div>
+          <div class="add-card-component_block_item add-card-component_block_item_small">
+            <div class="add-card-component_block_item_label">
+              {{ 'Жиры' }}
+            </div>
+            <input 
+              v-model.trim="store.addCardForm.calories.fats"
+              class="add-card-component_block_item_value"
+              type="text"
+            >
+          </div>
+          <div class="add-card-component_block_item add-card-component_block_item_small">
+            <div class="add-card-component_block_item_label">
+              {{ 'Углеводы' }}
+            </div>
+            <input 
+              v-model.trim="store.addCardForm.calories.carbo"
+              class="add-card-component_block_item_value"
+              type="text"
+            >
+          </div>
+          <div class="add-card-component_block_item add-card-component_block_item_small">
+            <div class="add-card-component_block_item_label">
+              {{ 'Калорий' }}
+            </div>
+            <input 
+              v-model.trim="store.addCardForm.calories.calorie"
+              class="add-card-component_block_item_value"
+              type="text"
+            >
+          </div>
+        </div>
+      </div> 
     </div>
     <div class="add-card-component_btn_row">
+      <div class="add-card-component_btn_row_warning">
+        <div 
+          class="add-card-component_btn_row_warning_preloader"
+          :class="{'add-card-component_btn_row_warning_preloader__show': store.addCardForm.preloader}" 
+        />
+        <div 
+          class="add-card-component_btn_row_warning_text"
+          :class="{'add-card-component_btn_row_warning_text__show': store.addCardForm.warning.show}" 
+        >
+          {{ store.addCardForm.warning.text }}
+        </div>
+      </div>
       <button 
         class="add-card-component_btn_row_button"
         @click="store.changeCard()"
@@ -113,7 +173,7 @@ const previewsImgs = ref([] as string[])
 
 const addPhoto = (event: Event) => {
   const imgs = [...(event.target as HTMLInputElement).files as FileList]
-  store.addCardForm.gallery = imgs.map( item => item.name)
+  store.addCardForm.gallery = imgs
   previewsImgs.value = imgs.map(item =>  window.URL.createObjectURL(item))
 }
 

@@ -74,7 +74,18 @@ export interface AdminState {
     shortDescription: string
     description: string
     composition: string | string[]
-    gallery: string[]
+    gallery: File[]
+    calories: {
+      protein: string
+      fats: string
+      carbo: string
+      calorie: string
+    }
+    preloader: boolean
+    warning: {
+      show: boolean
+      text: string
+    }
   }
 }
 

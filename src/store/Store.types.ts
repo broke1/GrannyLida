@@ -72,6 +72,9 @@ export interface AdminState {
     name: string
     price: number | null
     shortDescription: string
+    description: string
+    composition: string | string[]
+    gallery: string[]
   }
 }
 

@@ -5,7 +5,10 @@
     <AuthComponent 
       v-show="store.needAuth"
     />
-    <div class="adminPage-page_container">
+    <div 
+      v-show="!store.needAuth"
+      class="adminPage-page_container"
+    >
       <div class="adminPage-page_container_left">
 
       </div>

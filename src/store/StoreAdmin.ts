@@ -20,11 +20,10 @@ export const adminStore = defineStore('main', {
         name: '',
         price: null,
         shortDescription: '',
-        // description: `Красный торт на самом деле красно-белый. Красный слой клубника, белый ваниль. Украшен заварными цветочками, карамельными ягодами. 
-        // Подойдет и на день рождение и на свадьбу.`,
+        description: ``,
         // imgPath: '/Catalog/redCake/',
-        // composition: ['безглютеновая мука','тростниковый сахар','банановое молоко','детский смех', 'красный аплеьсин'],
-        // gallery: [] as string[],
+        composition: [],   
+        gallery: [],
         // calories: {
         //   protein: '120',
         //   fats: '250',

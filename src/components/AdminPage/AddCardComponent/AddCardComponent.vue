@@ -33,6 +33,62 @@
           rows="2"
         />
       </div>  
+      <div class="add-card-component_block_item add-card-component_block_item_fullDes">
+        <div class="add-card-component_block_item_label">
+          {{ 'Полное описание (для карточки товара)' }}
+        </div>
+        <textarea 
+          v-model.trim="store.addCardForm.description"
+          class="add-card-component_block_item_value add-card-component_block_item_value_textarea"
+          rows="5"
+        />
+      </div> 
+      <div class="add-card-component_block_item add-card-component_block_item_composition">
+        <div class="add-card-component_block_item_label">
+          {{ 'Состав (перечислить ингридиенты через , )' }}
+        </div>
+        <textarea 
+          v-model.trim="store.addCardForm.composition"
+          class="add-card-component_block_item_value add-card-component_block_item_value_textarea"
+          rows="2"
+          placeholder="безглютеновая мука, сахар, детский смех"
+        />
+      </div> 
+      <div class="add-card-component_block_item add-card-component_block_item_gallery">
+        <div class="add-card-component_block_item_label">
+          {{ 'Фото кондитерского изделия' }}
+        </div>
+        <div class="add-card-component_block_item_value add-card-component_block_item_files">
+          <label class="add-card-component_block_item_file_upload">
+            <input 
+              type="file" 
+              multiple
+              @change="addPhoto"
+            >
+            <span class="add-card-component_block_item_file_upload_btn">
+              {{ 'Выберите файл' }}
+            </span>
+          </label>
+          <div 
+            class="add-card-component_block_item_files_images"
+            :class="{ 'add-card-component_block_item_files_images__with_margin': previewsImgs.length > 0 }"
+          >
+            <div 
+              v-for="(item, index) in previewsImgs"
+              :key="item"
+              class="add-card-component_block_item_files_images_img"
+            >
+              <img :src="item">
+              <span 
+                class="add-card-component_block_item_files_images_img_btn__close"
+                @click="deletePreviwImg(index)"
+              >
+                {{ 'x' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
     <div class="add-card-component_btn_row">
       <button 
@@ -42,51 +98,29 @@
         {{ 'Создать' }}
       </button> 
     </div> 
-    
-    <!-- <div class="auth-component_row">
-      <input 
-        v-model.trim="store.authForm.pass"
-        class="auth-component_item"
-        placeholder="Пароль"
-        :type="store.authForm.type"
-        @keyup.enter="store.checkAuth()"
-      >
-      <div 
-        class="auth-component_img"
-        :class="{'auth-component_img__show': store.authForm.type == 'text'}" 
-        @click="handleToogleShowPass"
-      />
-    </div>
-    <div class="auth-component_warn">
-      <div 
-        class="auth-component_warn_preloader"
-        :class="{'auth-component_warn_preloader__show': store.authForm.preloader}" 
-      />
-      <div 
-        class="auth-component_warn_text"
-        :class="{'auth-component_warn_text__show': !store.authForm.preloader}"
-      >
-        {{ store.authForm.warning }} 
-      </div>
-    </div>
-    <button 
-      class="auth-component_button"
-      @click="store.checkAuth()"
-    >
-      {{ 'Войти' }}
-    </button> -->
   </article>
 </template>
 
 <script setup lang="ts">
 
-// import { onMounted } from 'vue'
+import { ref } from 'vue'
 import { adminStore } from '@/store/StoreAdmin'
 
 
 const store = adminStore()
 
+const previewsImgs = ref([] as string[])
 
+const addPhoto = (event: Event) => {
+  const imgs = [...(event.target as HTMLInputElement).files as FileList]
+  store.addCardForm.gallery = imgs.map( item => item.name)
+  previewsImgs.value = imgs.map(item =>  window.URL.createObjectURL(item))
+}
+
+const deletePreviwImg = (index: number) => {
+  store.addCardForm.gallery.splice(index,1)
+  previewsImgs.value.splice(index,1)
+}
 
 </script>
 

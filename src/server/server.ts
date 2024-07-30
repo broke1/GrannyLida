@@ -4,12 +4,10 @@ import { fileURLToPath } from 'url'
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
-// import fileUpload from 'express-fileupload'
-// import multer from 'multer'
+import multer from 'multer'
 import nodemailer from 'nodemailer'
 import sqlite3 from 'sqlite3'
 import catalogMock from '../store/mock.ts'
-
 
 
 
@@ -151,77 +149,27 @@ app.post('/api/sendOrder', (req, res) => {
   
 })
 
-// настройка для загружаемых файлов
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, path.join(baseDir, '/public')) // Путь, куда сохранять файл
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, path.extname(file.originalname)) // Переименование файла
-//   }
-// })
+const storage = multer.diskStorage({ // делаем настройку для сохранения файлов с фронта
+  destination: (req, _file, cb) => {
+    const uploadPath = path.join(baseDir, '/public/Catalog', req.body.name) // путь куда сохраняем, он будет состоять из имени торта и картинок
+    fs.mkdir(uploadPath, { recursive: true }, (err) => {
+      if (err) {
+        return cb(err,'')
+      }
+      cb(null, uploadPath) // путь картинки
+    })
+  },
+  filename: (_req, file, cb) => {
+    cb(null, file.originalname) // название картинки
+  }
+})
 
-// const upload = multer({ storage: storage })
-
-// const upload = multer({
-//   dest: '/public',
-//   limits: { 
-//     fileSize: 50 * 1024 * 1024 
-//   }
-// })
-
+const upload = multer({ storage: storage }) // переменная для управления загрузкой файлов
 
 // метод отправки новой карточки товара
-app.post('/api/addCard',  (req, res) => {
+app.post('/api/addCard', upload.array('images', 15), (_req, res) => {
 
-  console.log('sadasdsadsad', req.body)
 
-  // if (!req.file || Object.keys(req.file).length == 0) {
-  //   return res.status(400).send('Нет файлов для загрузки.')
-  // }
-
-  // upload.single('images')(req, res, (err) => {
-  //   if (err) {
-  //     console.log(err.code)
-  //     // if (err.code === 'LIMIT_FILE_SIZE') {
-  //     //     return res.status(400).send('Файл слишком большой. Максимальный размер: 5 МБ.');
-  //     // }
-  //     // return res.status(500).send('Произошла ошибка при загрузке файла.');
-  //   }
-  // })
-
-  
-
-  // upload.single('images')
-  
-
-  
-
-  // console.log('sdfsdfsdf')
-
-  
-
-  // const files = req.files.images
-
-  
-
-  // if (!Array.isArray(files)) {
-  //   console.log(files.size)
-  //   console.log(files.name)
-  //   files.mv(path.join(baseDir, '/public/Catalog', files.name))
-  // }
-  //   files.map(file => {
-  //     const filePath = path.join(uploadDir, Date.now() + '_' + file.name);
-  //     return new Promise((resolve, reject) => {
-  //         file.mv(filePath, (err) => {
-  //             if (err) {
-  //                 reject(err);
-  //             } else {
-  //                 resolve(filePath);
-  //             }
-  //         });
-  //     });
-  // });
 
   res.status(200).json('success')
   

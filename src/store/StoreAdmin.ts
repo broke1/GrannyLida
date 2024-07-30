@@ -82,7 +82,7 @@ export const adminStore = defineStore('main', {
 
       const { name, 
         // price, shortDescription, description, composition,  calories, 
-        // gallery, 
+        gallery, 
         warning } = this.addCardForm
 
       if (name == ''){
@@ -95,23 +95,18 @@ export const adminStore = defineStore('main', {
       }
       
       this.addCardForm.preloader = true
-
-      // const formData = new FormData()
-      // formData.append('name', name)
-      // gallery.forEach( item => {
-      //   formData.append('images', item)
-      // })
-
-      // formData.append('images', gallery[0])
+      
+      const formData = new FormData()
+      formData.append('name', name)
+      gallery.forEach( img => {
+        formData.append('images', img)
+      })
       
       
 
       await fetch('/api/addCard',{
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body:  JSON.stringify({ name })
+        body: formData
         // body: JSON.stringify({
         //   name,
         //   price,

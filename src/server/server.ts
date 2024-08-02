@@ -167,11 +167,102 @@ const storage = multer.diskStorage({ // делаем настройку для �
 const upload = multer({ storage: storage }) // переменная для управления загрузкой файлов
 
 // метод отправки новой карточки товара
-app.post('/api/addCard', upload.array('images', 15), (_req, res) => {
+app.post('/api/addCard', upload.array('images', 15), (req, res) => {
+
+  // db.serialize(async () => {
+  //   await db.run(`create table if not exists catalog (id integer primary key  autoincrement, name text, price integer, shortDescription text, description text, 
+  //     composition text, protein text, fats text, carbo text, calorie text, gallery text)`, (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Table is created')
+  //   })
+  // })
+
+  // db.serialize(async () => {
+  //   await db.run(`drop table catalog`, (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Table is deleted')
+  //   })
+  // })
+
+  // db.serialize(async () => {
+  //   await db.run(`delete from catalog`, (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Table is cleared')
+  //   })
+  // })
+
+  const checkvalue = (value: string) => value || ''
+
+  const { name, price, shortDescription, description, composition, protein, fats, carbo, calorie } = req.body
+
+  let gallery = ''
+  if (req.files){
+
+    gallery = (req.files as Express.Multer.File[]).map( item => {
+      return `${req.body.name}\\${item.originalname}`
+    }).join('; ')
+  }
+
+  const sql = `insert into catalog (name, price, shortDescription, description, composition, protein, fats, carbo, calorie, gallery) 
+    values ("${name}", ${Number(checkvalue(price)) || 0}, "${checkvalue(shortDescription)}", "${checkvalue(description)}", "${checkvalue(composition)}",
+    "${checkvalue(protein)}", "${checkvalue(fats)}", "${checkvalue(carbo)}", "${checkvalue(calorie)}", "${checkvalue(gallery)}")`
+
+  db.serialize(async () => {
+    await db.run(sql, (err) => {
+      if (err) {
+        console.error(err.message)
+        res.status(500).json(err.message)
+        return
+      }
+      console.error('Row is insert successfully')
+      res.status(200).json('success')
+    })
+  })
+})
+
+// метод получения всех товаров
+app.get('/api/getCards', (_req, res) => {
 
 
+  const sql = 'select * from catalog'
 
-  res.status(200).json('success')
+  db.serialize(async () => {
+    await db.all(sql, (err, rows) => {
+      if (err) {
+        console.error(err.message)
+        res.status(500).json(err.message)
+        return
+      }
+      console.error('Rows is selected')
+      res.status(200).json(rows)
+    })
+  })
+})
+
+// метод удаляет карточку товара
+app.post('/api/deleteCards', (req, res) => {
+
+
+  db.serialize(async () => {
+    await db.get(`delete from catalog where id = "${req.body.id}"`, (err) => {
+      if (err) {
+        res.status(500).json(err.message)
+        return
+      }
+      console.log(`row is deleted`)
+      res.status(200).json(`success`)
+    })
+  })
+ 
   
 })
 

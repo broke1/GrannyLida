@@ -1,0 +1,161 @@
+@import "@/styles/main"
+  
+
+.cards-component 
+  background: $white
+  border-radius: 20px
+  padding: 30px
+  position: relative
+  display: flex
+  flex-flow: column
+  justify-content: flex-start
+  align-items: flex-start
+  height: 85vh
+  z-index: 2
+
+  &_preloader
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    background: $overlay-white
+    opacity: 0
+    z-index: -1
+    transition: $transition
+    position: absolute
+    height: 100%
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-radius: 20px
+
+    &_img
+      width: 60px
+      height: 60px
+      background-image: url("@/assets/preloader.svg") 
+      background-repeat: no-repeat
+      background-size: cover
+      animation: spin 2s ease 0s infinite
+
+    &__show
+      opacity: 1
+      z-index: 2
+
+  &_list
+    position: relative
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    align-items: flex-start
+    overflow: auto
+    gap: 40px
+    flex: 1
+    width: 100%
+    padding-bottom: 150px
+    
+    &_item
+      display: flex
+      flex-flow: row nowrap
+      justify-content: flex-start
+      align-items: center
+      gap: 40px
+      width: 100%
+      cursor: pointer
+      transition: $transition
+      background: $white
+      border-radius: 20px
+      position: relative
+
+      &:hover
+        background: $peach-hover
+
+        div[class*='item_text']
+          color: $white
+        
+      &_img
+        width: 100px
+        height: 100px
+
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+          border-radius: 20px
+
+      &_text
+        font-size: 1.6rem
+        line-height: 1.8rem
+        color: $overlay
+
+      &_btn__close
+        width: 25px
+        height: 25px
+        border-radius: 50px
+        display: flex
+        flex-flow: row
+        justify-content: center
+        align-items: center
+        font-size: 1rem
+        line-height: 1rem
+        color: $white
+        background: $peach-back
+        cursor: pointer
+        position: absolute
+        top: 10px
+        right: 10px
+        padding-bottom: 1px
+        border: 2px solid $white
+
+  &_footer
+    position: absolute
+    width: calc(100% - 90px)
+    padding: 20px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+    bottom: 30px
+    left: 30px
+    min-height: 50px
+    background: $white
+    z-index: 2
+    gap: 30px
+
+    &_warning
+      display: flex
+      flex-flow: row
+      justify-content: center
+      align-items: center
+      flex: 1
+      height: 35px
+
+      &_text
+        font-size: 1.3rem
+        line-height: 1.5rem
+        color: $peach
+        opacity: 1
+        transition: $transition
+        z-index: 1
+
+        &__show
+          opacity: 1
+
+        &__success
+          color: $peach-back
+
+    &_btn
+      width: 100%
+      padding: 15px 15px
+      font-size: 1.2rem
+      line-height: 1.4rem
+      text-transform: uppercase
+      color: $white
+      background: $peach-back
+      cursor: pointer
+      border-radius: 20px
+      outline: none
+      border: none
+      font-family: $font
+
+

@@ -1,9 +1,19 @@
 @import "@/styles/main"
   
+
 .add-card-component 
   background: $white
   border-radius: 20px
   padding: 30px
+  opacity: 0
+  transition: $transition
+  z-index: 1
+  transform: translateX(-100%)
+
+  &__show
+    opacity: 1
+    z-index: 1
+    transform: translateX(0)
 
   &_block
     display: grid
@@ -170,6 +180,9 @@
 
         &__show
           opacity: 1
+
+        &__success
+          color: $peach-back
       
       &_preloader
         width: 30px
@@ -200,4 +213,6 @@
       text-transform: uppercase
       font-size: 1.2rem
       line-height: 1.4rem
+
+
 

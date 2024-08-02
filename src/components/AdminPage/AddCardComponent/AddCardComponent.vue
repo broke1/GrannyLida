@@ -1,7 +1,10 @@
 
 
 <template>
-  <article class="add-card-component">
+  <article 
+    class="add-card-component"
+    :class="{ 'add-card-component__show': store.addCardForm.show }"
+  >
     <div class="add-card-component_block">
       <div class="add-card-component_block_item add-card-component_block_item_name">
         <div class="add-card-component_block_item_label">
@@ -146,7 +149,9 @@
         />
         <div 
           class="add-card-component_btn_row_warning_text"
-          :class="{'add-card-component_btn_row_warning_text__show': store.addCardForm.warning.show}" 
+          :class="{'add-card-component_btn_row_warning_text__show': store.addCardForm.warning.show,
+                   'add-card-component_btn_row_warning_text__success': store.addCardForm.warning.success
+          }" 
         >
           {{ store.addCardForm.warning.text }}
         </div>
@@ -163,7 +168,7 @@
 
 <script setup lang="ts">
 
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { adminStore } from '@/store/StoreAdmin'
 
 
@@ -181,6 +186,10 @@ const deletePreviwImg = (index: number) => {
   store.addCardForm.gallery.splice(index,1)
   previewsImgs.value.splice(index,1)
 }
+
+watch(() => store.addCardForm.gallery, () => {
+  previewsImgs.value = store.addCardForm.gallery.map( item => `public\\Catalog\\${item}`)
+})
 
 </script>
 

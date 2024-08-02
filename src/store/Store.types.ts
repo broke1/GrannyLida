@@ -68,13 +68,34 @@ export interface AdminState {
     warning: string
     preloader: boolean
   },
+  cards: {
+    preloader: boolean,
+    body: {
+      id: number,
+      name: string
+      price: number | null
+      shortDescription: string
+      description: string
+      composition: string
+      protein: string
+      fats: string
+      carbo: string
+      calorie: string
+      gallery: string
+    }[],
+    warning: {
+      show: boolean
+      text: string
+      success: boolean
+    }
+  }
   addCardForm: {
     name: string
     price: number | null
     shortDescription: string
     description: string
-    composition: string | string[]
-    gallery: File[]
+    composition: string
+    gallery: File[] | string[]
     calories: {
       protein: string
       fats: string
@@ -85,7 +106,9 @@ export interface AdminState {
     warning: {
       show: boolean
       text: string
+      success: boolean
     }
+    show: boolean
   }
 }
 

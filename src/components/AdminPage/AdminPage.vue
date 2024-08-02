@@ -9,9 +9,7 @@
       v-show="!store.needAuth"
       class="adminPage-page_container"
     >
-      <div class="adminPage-page_container_left">
-
-      </div>
+      <CardsComponent />
       <AddCardComponent />
     </div>
   </section>
@@ -22,6 +20,7 @@
 import { useCookies } from 'vue3-cookies'
 import AddCardComponent from './AddCardComponent/AddCardComponent.vue'
 import AuthComponent from './AuthComponent/AuthComponent.vue'
+import CardsComponent from './CardsComponent/CardsComponent.vue'
 import { adminStore } from '@/store/StoreAdmin'
 
 

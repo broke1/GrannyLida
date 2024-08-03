@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { useCookies } from 'vue3-cookies'
 import { AdminState } from './Store.types'
 
+ 
 
 
 export const adminStore = defineStore('main', {

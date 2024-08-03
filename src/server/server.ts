@@ -1,13 +1,14 @@
 import * as fs from 'node:fs'
 import  path, { dirname }  from 'path'
 import { fileURLToPath } from 'url'
+import bcrypt from 'bcrypt'
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import multer from 'multer'
 import nodemailer from 'nodemailer'
 import sqlite3 from 'sqlite3'
-// import catalogMock from '../store/mock.ts'
+
 
 
 
@@ -72,16 +73,36 @@ app.post('/api/checkAuth', (req, res) => {
   //   })
   // })
 
+  // db.serialize(async () => {
+
+  //   const salt = await bcrypt.genSalt(10)
+  //   const hashedPass = await bcrypt.hash('admin', salt)
+
+  //   console.log(hashedPass)
+
+  //   await db.run(`update users set pass = "${hashedPass}" where login = "admin"`, (err) => {
+  //     if (err) {
+  //       console.error(err.message)
+  //       return
+  //     }
+  //     console.log('Row is inserted')
+  //   })
+  // })
+
+
+
   db.serialize(async () => {
-    await db.get(`select * from users where login = "${req.body.login}" and pass = "${req.body.pass}"`, (err, row) => {
+    await db.get(`select * from users where login = "${req.body.login}"`, async (err, row) => {
+      
+      const isMatch = await bcrypt.compare(req.body.pass, (row as {pass: string}).pass)
       if (err) {
         res.status(500).json(err.message)
         return
       }
-      if (row){
-        res.status(200).json(`user is exists`)
+      if (isMatch){
+        res.status(200).json(`pass is correct`)
       } else {
-        res.status(500).json(`user is not exists`)
+        res.status(500).json(`pass is not correct`)
       }
     })
   })

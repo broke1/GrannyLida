@@ -89,7 +89,8 @@ export interface AdminState {
       success: boolean
     }
   }
-  addCardForm: {
+  cardForm: {
+    id: number
     name: string
     price: number | null
     shortDescription: string
@@ -108,7 +109,8 @@ export interface AdminState {
       text: string
       success: boolean
     }
-    show: boolean
+    show: boolean,
+    btnText: string
   }
 }
 

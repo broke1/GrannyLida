@@ -7,7 +7,7 @@ import express from 'express'
 import multer from 'multer'
 import nodemailer from 'nodemailer'
 import sqlite3 from 'sqlite3'
-import catalogMock from '../store/mock.ts'
+// import catalogMock from '../store/mock.ts'
 
 
 
@@ -90,26 +90,26 @@ app.post('/api/checkAuth', (req, res) => {
 })
 
 // метод возвращает каталог тортов
-app.get('/api/getCatalogList', (_req, res) => {
+// app.get('/api/getCatalogList', (_req, res) => {
 
-  // получив данные пробегаемся по ним
-  catalogMock.forEach( item => {
-    // очищаем галерею
-    item.gallery = [] 
-    // считываем каталог на наличие в нем всех файлов и пробегаемся по ним
-    fs.readdirSync(path.join(baseDir, '/public', item.imgPath)).forEach(file => {
-      // если это не главная картинка, она нам для галереи не нужна
-      if (!file.includes('main')){
-        // добавляем в галерею путь файла
-        item.gallery.push(file)
-      }
-    })
-    // сортируем галерею
-    item.gallery.sort((a, b) => a > b ? 1 : -1 )
-  })
-  // возвращаем обнволенный каталог с галерей
-  res.status(200).json(catalogMock)
-})
+//   // получив данные пробегаемся по ним
+//   catalogMock.forEach( item => {
+//     // очищаем галерею
+//     item.gallery = [] 
+//     // считываем каталог на наличие в нем всех файлов и пробегаемся по ним
+//     fs.readdirSync(path.join(baseDir, '/public', item.imgPath)).forEach(file => {
+//       // если это не главная картинка, она нам для галереи не нужна
+//       if (!file.includes('main')){
+//         // добавляем в галерею путь файла
+//         item.gallery.push(file)
+//       }
+//     })
+//     // сортируем галерею
+//     item.gallery.sort((a, b) => a > b ? 1 : -1 )
+//   })
+//   // возвращаем обнволенный каталог с галерей
+//   res.status(200).json(catalogMock)
+// })
 
 // метод отправки данных на почту
 app.post('/api/sendOrder', (req, res) => {
@@ -151,7 +151,7 @@ app.post('/api/sendOrder', (req, res) => {
 
 const storage = multer.diskStorage({ // делаем настройку для сохранения файлов с фронта
   destination: (req, _file, cb) => {
-    const uploadPath = path.join(baseDir, '/public/Catalog', req.body.name) // путь куда сохраняем, он будет состоять из имени торта и картинок
+    const uploadPath = path.join(baseDir, process.env.VITE_BASEPATH as string, req.body.name) // путь куда сохраняем, он будет состоять из имени торта и картинок
     fs.mkdir(uploadPath, { recursive: true }, (err) => {
       if (err) {
         return cb(err,'')
@@ -167,7 +167,7 @@ const storage = multer.diskStorage({ // делаем настройку для �
 const upload = multer({ storage: storage }) // переменная для управления загрузкой файлов
 
 // метод отправки новой карточки товара
-app.post('/api/addCard', upload.array('images', 15), (req, res) => {
+app.post('/api/changeCard', upload.array('images', 15), (req, res) => {
 
   // db.serialize(async () => {
   //   await db.run(`create table if not exists catalog (id integer primary key  autoincrement, name text, price integer, shortDescription text, description text, 
@@ -202,19 +202,27 @@ app.post('/api/addCard', upload.array('images', 15), (req, res) => {
 
   const checkvalue = (value: string) => value || ''
 
-  const { name, price, shortDescription, description, composition, protein, fats, carbo, calorie } = req.body
+  const { id, name, price, shortDescription, description, composition, protein, fats, carbo, calorie } = req.body
 
   let gallery = ''
-  if (req.files){
 
+  if (req.files){
     gallery = (req.files as Express.Multer.File[]).map( item => {
       return `${req.body.name}\\${item.originalname}`
     }).join('; ')
   }
 
-  const sql = `insert into catalog (name, price, shortDescription, description, composition, protein, fats, carbo, calorie, gallery) 
-    values ("${name}", ${Number(checkvalue(price)) || 0}, "${checkvalue(shortDescription)}", "${checkvalue(description)}", "${checkvalue(composition)}",
-    "${checkvalue(protein)}", "${checkvalue(fats)}", "${checkvalue(carbo)}", "${checkvalue(calorie)}", "${checkvalue(gallery)}")`
+  let sql = ''
+
+  if (id != '-1'){
+    sql = `update catalog set name = "${name}", price = ${Number(checkvalue(price)) || 0}, shortDescription = "${checkvalue(shortDescription)}", description = "${checkvalue(description)}", 
+    composition = "${checkvalue(composition)}", protein = "${checkvalue(protein)}", fats = "${checkvalue(fats)}", carbo = "${checkvalue(carbo)}", calorie = "${checkvalue(calorie)}", 
+    gallery = "${checkvalue(gallery)}" where id = ${Number(id)}`
+  } else {
+    sql = `insert into catalog (name, price, shortDescription, description, composition, protein, fats, carbo, calorie, gallery) 
+      values ("${name}", ${Number(checkvalue(price)) || 0}, "${checkvalue(shortDescription)}", "${checkvalue(description)}", "${checkvalue(composition)}",
+      "${checkvalue(protein)}", "${checkvalue(fats)}", "${checkvalue(carbo)}", "${checkvalue(calorie)}", "${checkvalue(gallery)}")`
+  }
 
   db.serialize(async () => {
     await db.run(sql, (err) => {

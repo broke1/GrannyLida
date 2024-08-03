@@ -25,12 +25,12 @@ export const adminStore = defineStore('main', {
           success: false
         }
       },
-      addCardForm: {
+      cardForm: {
+        id: -1,
         name: '',
         price: null,
         shortDescription: '',
         description: ``,
-        // imgPath: '/Catalog/redCake/',
         composition: '',   
         gallery: [],
         calories: {
@@ -45,7 +45,8 @@ export const adminStore = defineStore('main', {
           text: '',
           success: false
         },
-        show: false
+        show: false,
+        btnText: 'Изменить'
       }
     }
   },
@@ -112,7 +113,7 @@ export const adminStore = defineStore('main', {
     },
     async changeCard() {
 
-      const { name, price, shortDescription, description, composition,  calories, gallery, warning } = this.addCardForm
+      const { id, name, price, shortDescription, description, composition,  calories, gallery, warning } = this.cardForm
 
       if (name == ''){
         warning.success = false
@@ -124,10 +125,11 @@ export const adminStore = defineStore('main', {
         return
       }
       
-      this.addCardForm.preloader = true
+      this.cardForm.preloader = true
       
       const formData = new FormData()
 
+      formData.append('id', String(id))
       formData.append('name', name)
       gallery.forEach( img => {
         formData.append('images', img)
@@ -141,7 +143,7 @@ export const adminStore = defineStore('main', {
       formData.append('carbo', calories.carbo)
       formData.append('calorie', calories.calorie)
       
-      await fetch('/api/addCard',{
+      await fetch('/api/changeCard',{
         method: 'POST',
         body: formData
       })
@@ -165,7 +167,7 @@ export const adminStore = defineStore('main', {
           warning.show = true
         })
         .finally(() => {
-          this.addCardForm.preloader = false
+          this.cardForm.preloader = false
           setTimeout(() => {
             warning.show = false
           }, 3000)
@@ -177,8 +179,9 @@ export const adminStore = defineStore('main', {
       
       const { name, price, shortDescription, description, composition,  protein, fats, carbo, calorie, gallery } = this.cards.body.filter( item => item.id == id)[0]
 
-      this.addCardForm = {
-        ...this.addCardForm,
+      this.cardForm = {
+        ...this.cardForm,
+        id,
         name,
         price,
         shortDescription,
@@ -191,7 +194,8 @@ export const adminStore = defineStore('main', {
           calorie
         },
         gallery: gallery.split('; '),
-        show: true
+        show: true,
+        btnText: 'Изменить'
       }
 
     },
@@ -245,8 +249,9 @@ export const adminStore = defineStore('main', {
     },
     newCard() {
       
-      this.addCardForm = {
-        ...this.addCardForm,
+      this.cardForm = {
+        ...this.cardForm,
+        id: -1,
         name: '',
         price: null,
         shortDescription: '',
@@ -259,7 +264,8 @@ export const adminStore = defineStore('main', {
           calorie: ''
         },
         gallery: [],
-        show: true
+        show: true,
+        btnText: 'Создать'
       }
 
     },

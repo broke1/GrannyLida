@@ -3,7 +3,7 @@
 <template>
   <article 
     class="add-card-component"
-    :class="{ 'add-card-component__show': store.addCardForm.show }"
+    :class="{ 'add-card-component__show': store.cardForm.show }"
   >
     <div class="add-card-component_block">
       <div class="add-card-component_block_item add-card-component_block_item_name">
@@ -11,7 +11,7 @@
           {{ 'Имя кондитерского изделия' }}
         </div>
         <input 
-          v-model.trim="store.addCardForm.name"
+          v-model.trim="store.cardForm.name"
           class="add-card-component_block_item_value"
           type="text"
         >
@@ -21,7 +21,7 @@
           {{ 'Цена (р/кг)' }}
         </div>
         <input 
-          v-model.trim="store.addCardForm.price"
+          v-model.trim="store.cardForm.price"
           class="add-card-component_block_item_value"
           type="text"
         >
@@ -31,7 +31,7 @@
           {{ 'Короткое описание (для каталога)' }}
         </div>
         <textarea 
-          v-model.trim="store.addCardForm.shortDescription"
+          v-model.trim="store.cardForm.shortDescription"
           class="add-card-component_block_item_value add-card-component_block_item_value_textarea"
           rows="2"
         />
@@ -41,7 +41,7 @@
           {{ 'Полное описание (для карточки товара)' }}
         </div>
         <textarea 
-          v-model.trim="store.addCardForm.description"
+          v-model.trim="store.cardForm.description"
           class="add-card-component_block_item_value add-card-component_block_item_value_textarea"
           rows="5"
         />
@@ -51,7 +51,7 @@
           {{ 'Состав (перечислить ингридиенты через , )' }}
         </div>
         <textarea 
-          v-model.trim="store.addCardForm.composition"
+          v-model.trim="store.cardForm.composition"
           class="add-card-component_block_item_value add-card-component_block_item_value_textarea"
           rows="2"
           placeholder="безглютеновая мука, сахар, детский смех"
@@ -103,7 +103,7 @@
               {{ 'Белки' }}
             </div>
             <input 
-              v-model.trim="store.addCardForm.calories.protein"
+              v-model.trim="store.cardForm.calories.protein"
               class="add-card-component_block_item_value"
               type="text"
             >
@@ -113,7 +113,7 @@
               {{ 'Жиры' }}
             </div>
             <input 
-              v-model.trim="store.addCardForm.calories.fats"
+              v-model.trim="store.cardForm.calories.fats"
               class="add-card-component_block_item_value"
               type="text"
             >
@@ -123,7 +123,7 @@
               {{ 'Углеводы' }}
             </div>
             <input 
-              v-model.trim="store.addCardForm.calories.carbo"
+              v-model.trim="store.cardForm.calories.carbo"
               class="add-card-component_block_item_value"
               type="text"
             >
@@ -133,7 +133,7 @@
               {{ 'Калорий' }}
             </div>
             <input 
-              v-model.trim="store.addCardForm.calories.calorie"
+              v-model.trim="store.cardForm.calories.calorie"
               class="add-card-component_block_item_value"
               type="text"
             >
@@ -145,22 +145,22 @@
       <div class="add-card-component_btn_row_warning">
         <div 
           class="add-card-component_btn_row_warning_preloader"
-          :class="{'add-card-component_btn_row_warning_preloader__show': store.addCardForm.preloader}" 
+          :class="{'add-card-component_btn_row_warning_preloader__show': store.cardForm.preloader}" 
         />
         <div 
           class="add-card-component_btn_row_warning_text"
-          :class="{'add-card-component_btn_row_warning_text__show': store.addCardForm.warning.show,
-                   'add-card-component_btn_row_warning_text__success': store.addCardForm.warning.success
+          :class="{'add-card-component_btn_row_warning_text__show': store.cardForm.warning.show,
+                   'add-card-component_btn_row_warning_text__success': store.cardForm.warning.success
           }" 
         >
-          {{ store.addCardForm.warning.text }}
+          {{ store.cardForm.warning.text }}
         </div>
       </div>
       <button 
         class="add-card-component_btn_row_button"
         @click="store.changeCard()"
       >
-        {{ 'Создать' }}
+        {{ store.cardForm.btnText }}
       </button> 
     </div> 
   </article>
@@ -178,17 +178,22 @@ const previewsImgs = ref([] as string[])
 
 const addPhoto = (event: Event) => {
   const imgs = [...(event.target as HTMLInputElement).files as FileList]
-  store.addCardForm.gallery = imgs
-  previewsImgs.value = imgs.map(item =>  window.URL.createObjectURL(item))
+  store.cardForm.gallery = imgs
 }
 
 const deletePreviwImg = (index: number) => {
-  store.addCardForm.gallery.splice(index,1)
+  store.cardForm.gallery.splice(index,1)
   previewsImgs.value.splice(index,1)
 }
 
-watch(() => store.addCardForm.gallery, () => {
-  previewsImgs.value = store.addCardForm.gallery.map( item => `public\\Catalog\\${item}`)
+watch(() => store.cardForm.gallery, () => {
+  previewsImgs.value = store.cardForm.gallery.map( item => {
+    if (typeof item == 'string'){
+      return `${import.meta.env.VITE_BASEPATH}${item}`
+    } else {
+      return window.URL.createObjectURL(item)
+    }
+  })
 })
 
 </script>

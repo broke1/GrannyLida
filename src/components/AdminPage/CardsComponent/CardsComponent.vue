@@ -53,6 +53,7 @@
 import { onMounted } from 'vue'
 import { adminStore } from '@/store/StoreAdmin'
 
+
 const store = adminStore()
 
 onMounted(() => {
@@ -60,7 +61,7 @@ onMounted(() => {
 })
 
 const pathImg = (gallery: string) => {
-  return `\\public\\Catalog\\${gallery.split(';')[0].trim()}`
+  return `${ import.meta.env.VITE_BASEPATH}${gallery.split(';')[0].trim()}`
 }
 
 </script>

@@ -21,7 +21,7 @@
       <div class="catalog-modal-container_block_title">
         {{ dataModal?.name }}
       </div>
-      <div 
+      <!-- <div 
         v-if="dataModal?.gallery.length == 0"
         class="catalog-modal-container_block_gallery"
       >
@@ -29,36 +29,34 @@
           class="catalog-modal-container_block_gallery_img"
           :src="`${dataModal?.imgPath}main-image.jpg`"
         >
-      </div>
-      <div 
-        v-else
-        class="catalog-modal-container_block_gallery"
-      >
+      </div> -->
+      <div class="catalog-modal-container_block_gallery">
         <Carousel
           v-model="currentSlide"
           class="carousel_galery"
         >
           <Slide 
-            v-for="(slide, index) in dataModal?.gallery" 
+            v-for="(slide, index) in dataModal?.gallery.split(';')" 
             :key="index"
           >
             <div class="carousel_item">
               <img 
                 class="carousel_item_img"
-                :src="`${dataModal?.imgPath}${slide}`"
+                :src="`${pathImg(slide)}`"
               >
             </div>
           </Slide>
         </Carousel>
 
         <Carousel
+          v-if="dataModal?.gallery.split(';').length > 1"
           v-model="currentSlide"
           class="carousel_thumbnails"
           :items-to-show="3"
           :wrap-around="true"
         >
           <Slide 
-            v-for="(slide, index) in dataModal?.gallery" 
+            v-for="(slide, index) in dataModal?.gallery.split(';')" 
             :key="index"
           >
             <div 
@@ -68,7 +66,7 @@
             >
               <img 
                 class="carousel_item_img"
-                :src="`${dataModal?.imgPath}${slide}`"
+                :src="`${pathImg(slide)}`"
               >
             </div>
           </Slide>
@@ -80,20 +78,20 @@
       <div class="catalog-modal-container_block_inside">
         <ul class="catalog-modal-container_block_inside_colories">
           <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `Б:  ${dataModal?.calories.protein} гр.` }}
+            {{ `Б:  ${dataModal?.protein} гр.` }}
           </li>
           <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `Ж:  ${dataModal?.calories.fats} гр.` }}
+            {{ `Ж:  ${dataModal?.fats} гр.` }}
           </li>
           <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `У:  ${dataModal?.calories.carbo} гр.` }}
+            {{ `У:  ${dataModal?.carbo} гр.` }}
           </li>
           <li class="catalog-modal-container_block_inside_colories_item catalog-modal-container_block_inside_colories_item__last">
-            {{ `К:  ${dataModal?.calories.calorie} ккал` }}
+            {{ `К:  ${dataModal?.calorie} ккал` }}
           </li>
         </ul>
         <div class="catalog-modal-container_block_inside_block">
-          {{ `Состав:  ${dataModal?.composition.join(', ')}` }}
+          {{ `Состав:  ${dataModal?.composition}` }}
         </div>
       </div>
       <div class="catalog-modal-container_block_footer">
@@ -128,25 +126,24 @@ const store = mainStore()
 const { CatalogList, CatalogIndex } = storeToRefs(store)
 
 const dataModal = ref({
+  id: -1,
   name: '',
   price: 0,
   shortDescription: '',
   description: '',
-  imgPath: '',
-  composition: [] as string[],
-  gallery: [] as string[],
-  calories: {} as {
-    protein: string,
-    fats: string,
-    carbo: string,
-    calorie: string
-  }
+  composition: '',
+  protein: '',
+  fats: '',
+  carbo: '',
+  calorie: '',
+  gallery: ''
 })
 
 const currentSlide = ref(0)
 
 watch([CatalogIndex, CatalogList], () => {
   dataModal.value = CatalogList.value[CatalogIndex.value]
+  console.log(dataModal.value)
 })
 
 
@@ -163,6 +160,10 @@ const handleOrderModal = () => {
 
 const slideTo = (val: number) => { // перелестнуть слайд
   currentSlide.value = val // присваиваем переменной выбранное пользователем значение
+}
+
+const pathImg = (slide: string) => {
+  return `${ import.meta.env.VITE_BASEPATH}${slide.trim()}`
 }
 
 </script>

@@ -29,7 +29,7 @@
           <div class="catalog-container_block_body_item_img_block">
             <img 
               class="catalog-container_block_body_item_img_block_img"
-              :src="`${item.imgPath}main-image.jpg`"
+              :src="pathImg(item.gallery)"
             >
           </div>
           <div class="catalog-container_block_body_item_description_block">
@@ -87,6 +87,11 @@ const handleOpenModal = (index: number) => {
   store.catalogModal.index = index
   store.catalogModal.show = true
 }
+
+const pathImg = (gallery: string) => {
+  return `${ import.meta.env.VITE_BASEPATH}${gallery.split(';')[0].trim()}`
+}
+
 </script>
 
 <style src="./CatalogComponent.sass" lang="sass"></style>

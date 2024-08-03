@@ -18,19 +18,17 @@ export interface State {
   showCatalog: boolean
   catalogTitle: string
   catalogList: {
+    id: number,
     name: string
     price: number
     shortDescription: string
     description: string
-    imgPath: string
-    composition: string[]
-    gallery: string[]
-    calories: {
-      protein: string
-      fats: string
-      carbo: string
-      calorie: string
-    }
+    composition: string
+    protein: string
+    fats: string
+    carbo: string
+    calorie: string
+    gallery: string
   }[],
   catalogModal: {
     show: boolean

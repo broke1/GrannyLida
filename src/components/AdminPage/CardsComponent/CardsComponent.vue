@@ -23,7 +23,7 @@
         </div>
         <span 
           class="cards-component_list_item_btn__close"
-          @click="store.deleteCard(item.id)"
+          @click="store.deleteCard(item.id, item.name)"
         >
           {{ 'x' }}
         </span>

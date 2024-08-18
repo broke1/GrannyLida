@@ -70,7 +70,8 @@ export interface AdminState {
     preloader: boolean,
     body: {
       id: number,
-      name: string
+      name: string,
+      originName: string
       price: number | null
       shortDescription: string
       description: string
@@ -90,6 +91,7 @@ export interface AdminState {
   cardForm: {
     id: number
     name: string
+    originName: string
     price: number | null
     shortDescription: string
     description: string

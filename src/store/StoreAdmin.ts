@@ -29,6 +29,7 @@ export const adminStore = defineStore('main', {
       cardForm: {
         id: -1,
         name: '',
+        originName: '',
         price: null,
         shortDescription: '',
         description: ``,
@@ -114,7 +115,7 @@ export const adminStore = defineStore('main', {
     },
     async changeCard() {
 
-      const { id, name, price, shortDescription, description, composition,  calories, gallery, warning } = this.cardForm
+      const { id, name, originName, price, shortDescription, description, composition,  calories, gallery, warning } = this.cardForm
 
       if (name == ''){
         warning.success = false
@@ -132,6 +133,7 @@ export const adminStore = defineStore('main', {
 
       formData.append('id', String(id))
       formData.append('name', name)
+      formData.append('originName',originName)
       gallery.forEach( img => {
         formData.append('images', img)
       })
@@ -154,6 +156,10 @@ export const adminStore = defineStore('main', {
               warning.success = true
               warning.text = 'Кондитерское изделие успешно сохраненно'
               warning.show = true
+              setTimeout(() => {
+                warning.show = false
+                this.cardForm.show = false
+              }, 3000)
             })
           } else {
             warning.success = false
@@ -178,12 +184,13 @@ export const adminStore = defineStore('main', {
     },
     chooseCard(id: number) {
       
-      const { name, price, shortDescription, description, composition,  protein, fats, carbo, calorie, gallery } = this.cards.body.filter( item => item.id == id)[0]
+      const { name, originName, price, shortDescription, description, composition,  protein, fats, carbo, calorie, gallery } = this.cards.body.filter( item => item.id == id)[0]
 
       this.cardForm = {
         ...this.cardForm,
         id,
         name,
+        originName,
         price,
         shortDescription,
         description,
@@ -200,9 +207,10 @@ export const adminStore = defineStore('main', {
       }
 
     },
-    async deleteCard(id: number) {
+    async deleteCard(id: number, name: string) {
       
       this.cards.preloader = true
+      this.cardForm.show = false
 
       const { warning } = this.cards
 
@@ -212,7 +220,8 @@ export const adminStore = defineStore('main', {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id
+          id,
+          name
         })
       })
         .then( response => {
@@ -222,11 +231,13 @@ export const adminStore = defineStore('main', {
                 warning.success = true
                 warning.text = 'Кондитерское изделие успешно удалено'
                 warning.show = true
+                this.cardForm.show = false
               })
             } else {
               warning.success = true
               warning.text = 'Кондитерское изделие удалить не удалось'
               warning.show = true
+              this.cardForm.show = false
             }
           }
           
@@ -235,14 +246,17 @@ export const adminStore = defineStore('main', {
           warning.success = true
           warning.text = 'Кондитерское изделие удалить не удалось'
           warning.show = true
+          this.cardForm.show = false
         })
         .finally(() => {
           this.cards.preloader = false
-          warning.success = true
-          warning.text = 'Кондитерское изделие удалить не удалось'
-          warning.show = true
+          this.cardForm.show = false
           setTimeout(() => {
-            warning.show = false
+            this.cards.warning = {
+              show: false,
+              text: '',
+              success: false 
+            }
           }, 3000)
           this.getCards()
         })
@@ -254,6 +268,7 @@ export const adminStore = defineStore('main', {
         ...this.cardForm,
         id: -1,
         name: '',
+        originName: '',
         price: null,
         shortDescription: '',
         description: '',
@@ -268,7 +283,6 @@ export const adminStore = defineStore('main', {
         show: true,
         btnText: 'Создать'
       }
-
     },
     
   }

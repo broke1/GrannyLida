@@ -9,7 +9,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'istanbul',
-      exclude: ['src/main.ts','src/App.vue','src/router/router.ts','src/store/mock.ts','src/server/server.ts', 'src/store/Store.ts']
+      exclude: ['src/main.ts','src/App.vue','src/router/router.ts','src/store/mock.ts','src/server/server.ts', 'src/store/Store.ts', 'src/store/StoreAdmin.ts']
     },
     environment: 'happy-dom',
     globals: true,

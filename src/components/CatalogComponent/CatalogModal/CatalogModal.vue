@@ -117,8 +117,10 @@
 import { storeToRefs } from 'pinia'
 import {  ref, watch } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
+import router from '@/router/router'
 import { mainStore } from '@/store/Store'
 import 'vue3-carousel/dist/carousel.css'
+
 
 
 const store = mainStore()
@@ -143,7 +145,6 @@ const currentSlide = ref(0)
 
 watch([CatalogIndex, CatalogList], () => {
   dataModal.value = CatalogList.value[CatalogIndex.value]
-  console.log(dataModal.value)
 })
 
 
@@ -156,6 +157,7 @@ const handleCloseModal = () => { // закрыть модальное окно
 
 const handleOrderModal = () => {
   handleCloseModal()
+  router.push({ name: 'MainPage', hash: '#contacts' })
 }
 
 const slideTo = (val: number) => { // перелестнуть слайд

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.66% </span>
+                <span class="strong">85.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/30</span>
+                <span class='fraction'>29/34</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.66% </span>
+                <span class="strong">85.29% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/30</span>
+                <span class='fraction'>29/34</span>
             </div>
         
             
@@ -233,7 +233,8 @@
 <a name='L168'></a><a href='#L168'>168</a>
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,10 +266,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,6 +276,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -363,8 +362,6 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -382,6 +379,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -398,6 +396,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -426,7 +428,7 @@
       &lt;div class="catalog-modal-container_block_title"&gt;
         {{ dataModal?.name }}
       &lt;/div&gt;
-      &lt;div 
+      &lt;!-- &lt;div 
         v-if="dataModal?.gallery.length == 0"
         class="catalog-modal-container_block_gallery"
       &gt;
@@ -434,36 +436,34 @@
           class="catalog-modal-container_block_gallery_img"
           :src="`${dataModal?.imgPath}main-image.jpg`"
         &gt;
-      &lt;/div&gt;
-      &lt;div 
-        v-else
-        class="catalog-modal-container_block_gallery"
-      &gt;
+      &lt;/div&gt; --&gt;
+      &lt;div class="catalog-modal-container_block_gallery"&gt;
         &lt;Carousel
           v-model="<span class="cstat-no" title="statement not covered" >currentSlide"</span>
           class="carousel_galery"
         &gt;
           &lt;Slide 
-            v-for="(slide, index) in dataModal?.gallery" 
+            v-for="(slide, index) in dataModal?.gallery.split(';')" 
             :key="index"
           &gt;
             &lt;div class="carousel_item"&gt;
               &lt;img 
                 class="carousel_item_img"
-                :src="`${dataModal?.imgPath}${slide}`"
+                :src="`${pathImg(slide)}`"
               &gt;
             &lt;/div&gt;
           &lt;/Slide&gt;
         &lt;/Carousel&gt;
 &nbsp;
         &lt;Carousel
+          v-if="dataModal?.gallery.split(';').length<span class="branch-0 cbranch-no" title="branch not covered" > &gt; 1"</span>
           v-model="<span class="cstat-no" title="statement not covered" >currentSlide"</span>
           class="carousel_thumbnails"
           :items-to-show="3"
           :wrap-around="true"
         &gt;
           &lt;Slide 
-            v-for="(slide, index) in dataModal?.gallery" 
+            v-for="(slide, index) in dataModal?.gallery.split(';')" 
             :key="index"
           &gt;
 <span class="fstat-no" title="function not covered" >            &lt;div </span>
@@ -473,7 +473,7 @@
             &gt;
               &lt;img 
                 class="carousel_item_img"
-                :src="`${dataModal?.imgPath}${slide}`"
+                :src="`${pathImg(slide)}`"
               &gt;
             &lt;/div&gt;<span class="cstat-no" title="statement not covered" ></span>
           &lt;/Slide&gt;
@@ -485,20 +485,20 @@
       &lt;div class="catalog-modal-container_block_inside"&gt;
         &lt;ul class="catalog-modal-container_block_inside_colories"&gt;
           &lt;li class="catalog-modal-container_block_inside_colories_item"&gt;
-            {{ `Б:  ${dataModal?.calories.protein} гр.` }}
+            {{ `Б:  ${dataModal?.protein} гр.` }}
           &lt;/li&gt;
           &lt;li class="catalog-modal-container_block_inside_colories_item"&gt;
-            {{ `Ж:  ${dataModal?.calories.fats} гр.` }}
+            {{ `Ж:  ${dataModal?.fats} гр.` }}
           &lt;/li&gt;
           &lt;li class="catalog-modal-container_block_inside_colories_item"&gt;
-            {{ `У:  ${dataModal?.calories.carbo} гр.` }}
+            {{ `У:  ${dataModal?.carbo} гр.` }}
           &lt;/li&gt;
           &lt;li class="catalog-modal-container_block_inside_colories_item catalog-modal-container_block_inside_colories_item__last"&gt;
-            {{ `К:  ${dataModal?.calories.calorie} ккал` }}
+            {{ `К:  ${dataModal?.calorie} ккал` }}
           &lt;/li&gt;
         &lt;/ul&gt;
         &lt;div class="catalog-modal-container_block_inside_block"&gt;
-          {{ `Состав:  ${dataModal?.composition.join(', ')}` }}
+          {{ `Состав:  ${dataModal?.composition}` }}
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="catalog-modal-container_block_footer"&gt;
@@ -533,25 +533,24 @@ const store = mainStore()
 const { CatalogList, CatalogIndex } = storeToRefs(store)
 &nbsp;
 const dataModal = ref({
+  id: -1,
   name: '',
   price: 0,
   shortDescription: '',
   description: '',
-  imgPath: '',
-  composition: [] as string[],
-  gallery: [] as string[],
-  calories: {} as {
-    protein: string,
-    fats: string,
-    carbo: string,
-    calorie: string
-  }
+  composition: '',
+  protein: '',
+  fats: '',
+  carbo: '',
+  calorie: '',
+  gallery: ''
 })
 &nbsp;
 const currentSlide = ref(0)
 &nbsp;
 watch([CatalogIndex, CatalogList], () =&gt; {
   dataModal.value = CatalogList.value[CatalogIndex.value]
+  console.log(dataModal.value)
 })
 &nbsp;
 &nbsp;
@@ -570,6 +569,10 @@ const slideTo = (val: number) =&gt; { // перелестнуть слайд
   currentSlide.value = val // присваиваем переменной выбранное пользователем значение
 }
 &nbsp;
+const pathImg = <span class="fstat-no" title="function not covered" >(s</span>lide: string) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return `${ import.meta.env.VITE_BASEPATH}${slide.trim()}`</span>
+}
+&nbsp;
 &lt;/script&gt;
 &nbsp;
 &lt;style src="./CatalogModal.sass" lang="sass"&gt;&lt;/style&gt;
@@ -580,7 +583,7 @@ const slideTo = (val: number) =&gt; { // перелестнуть слайд
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-22T06:05:14.114Z
+                at 2024-08-08T08:37:39.188Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

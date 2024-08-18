@@ -37,7 +37,7 @@ describe('CatalogComponent test', () => {
     
   })
 
-  it('При запросе каталога должен наполнится массив и при нажатии на карточку торта должно открыть моадльное окно', async () => {
+  it('При запросе каталога должен наполнится массив и при нажатии на карточку торта должно открыть модальное окно', async () => {
     const wrapper = mount(CatalogComponent,{
       global: {
         plugins: [createTestingPinia()],

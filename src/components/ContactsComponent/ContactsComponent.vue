@@ -32,7 +32,7 @@
               >
                 <img 
                   v-show="item.img != ''"
-                  :src="item.img" 
+                  :src="chooseImgContact(item.img)" 
                 >
               </div>
               <div class="contacts-container_block_body_left_part_messengers_row_text">
@@ -98,6 +98,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   observer?.disconnect()
 })
+
+const chooseImgContact = (nameImg: string) => {
+  return new URL(`/src/assets/${nameImg}`, import.meta.url).pathname
+}
 
 </script>
 

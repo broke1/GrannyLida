@@ -41,13 +41,20 @@ app.post('/api/checkAuth', (req, res) => {
 
 
   db.serialize(async () => {
+
+    // const salt = await bcrypt.genSalt(10) // задаем некую соль
+
+    // const hash = await bcrypt.hash('somePass', salt) // задаем хэш пароля используя соль
+
+    // await db.run(`update users set pass = "${hash}" where login = "${req.body.login}"`, async () => {}) // задаем новый пароль
+
     await db.get(`select * from users where login = "${req.body.login}"`, async (err, row) => {
 
       if (!row){
         res.status(500).json(`pass is not correct`)
         return
       }
-      
+
       const isMatch = await bcrypt.compare(req.body.pass, (row as {pass: string}).pass)
       if (err) {
         res.status(500).json(err.message)
@@ -59,6 +66,7 @@ app.post('/api/checkAuth', (req, res) => {
         res.status(500).json(`pass is not correct`)
       }
     })
+
   })
  
   

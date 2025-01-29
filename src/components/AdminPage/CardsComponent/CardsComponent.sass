@@ -12,6 +12,18 @@
   align-items: flex-start
   height: 85vh
   z-index: 2
+  opacity: 1
+  transition: $transition
+
+  @media screen and (max-width: 500px)
+    width: calc(100% - 60px)
+    opacity: 0
+    z-index: -1
+
+  &__show
+    opacity: 1
+    z-index: 2
+
 
   &_preloader
     display: flex
@@ -67,6 +79,9 @@
       border-radius: 20px
       position: relative
 
+      @media screen and (max-width: 500px)
+        gap: 20px
+
       &:hover
         background: $peach-hover
 
@@ -75,7 +90,13 @@
         
       &_img
         width: 100px
+        min-width: 100px
         height: 100px
+
+        @media screen and (max-width: 500px)
+          width: 80px
+          min-width: 80px
+          height: 80px
 
         img
           width: 100%
@@ -88,29 +109,33 @@
         line-height: 1.8rem
         color: $overlay
 
+        @media screen and (max-width: 500px)
+          font-size: 1.5rem
+          line-height: 1.7rem
+          padding-right: 40px
+
       &_btn__close
-        width: 25px
-        height: 25px
+        width: 32px
+        height: 30px
         border-radius: 50px
         display: flex
         flex-flow: row
         justify-content: center
         align-items: center
-        font-size: 1rem
+        font-size: 1.2rem
         line-height: 1rem
         color: $white
         background: $peach-back
         cursor: pointer
         position: absolute
         top: 10px
-        right: 10px
-        padding-bottom: 1px
+        right: 0px
+        padding-bottom: 2px
         border: 2px solid $white
 
   &_footer
     position: absolute
-    width: calc(100% - 90px)
-    padding: 20px
+    width: calc(100% - 60px)
     display: flex
     flex-flow: column nowrap
     justify-content: center
@@ -121,6 +146,8 @@
     background: $white
     z-index: 2
     gap: 30px
+    padding: 0
+    padding-top: 20px
 
     &_warning
       display: flex
@@ -146,7 +173,7 @@
 
     &_btn
       width: 100%
-      padding: 15px 15px
+      padding: 25px 15px
       font-size: 1.2rem
       line-height: 1.4rem
       text-transform: uppercase

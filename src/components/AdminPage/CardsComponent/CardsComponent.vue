@@ -1,7 +1,10 @@
 
 
 <template>
-  <article class="cards-component">
+  <article 
+    class="cards-component"
+    :class="{ 'cards-component__show': !store.cardForm.show }"
+  >
     <div 
       class="cards-component_preloader" 
       :class="{'cards-component_preloader__show': store.cards.preloader}"

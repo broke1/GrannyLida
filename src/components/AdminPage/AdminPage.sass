@@ -27,5 +27,13 @@ html, body
     grid-template-columns: 500px auto
     gap: 40px
     padding: 40px
+    position: relative
+
+    @media screen and (max-width: 500px)
+      display: block
+      padding: 20px
+      width: calc(100% - 40px)
+      height: calc(100% - 40px)
+    
 
 

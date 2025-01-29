@@ -9,21 +9,59 @@
   transition: $transition
   z-index: 1
   transform: translateX(-100%)
+  position: relative
+
+  &_btn__close
+    width: 32px
+    height: 30px
+    border-radius: 50px
+    display: flex
+    flex-flow: row
+    justify-content: center
+    align-items: center
+    font-size: 1.2rem
+    line-height: 1rem
+    color: $white
+    background: $peach-back
+    cursor: pointer
+    position: absolute
+    top: 30px
+    right: 30px
+    padding-bottom: 2px
+    border: 2px solid $white
+
+  @media screen and (max-width: 500px)
+    position: absolute
+    top: 50%
+    left: 50%
+    width: calc(100% - 100px)
+    height: 85vh
+    transform: translate(-150%, -50%)
 
   &__show
     opacity: 1
-    z-index: 1
-    transform: translateX(0)
+    z-index: 3
+    transform: translateX(0%)
+
+    @media screen and (max-width: 500px)
+      transform: translate(-50%, -50%)
 
   &_block
     display: grid
     grid-template-columns: 2fr 1fr
-    grid-template-rows: repeat(6, auto)
-    grid-template-areas: 'name  price' 'shortDes shortDes' 'fullDes fullDes' 'composition composition' 'gallery gallery' 'calories calories'
-    gap: 40px
-    height: 76vh
+    grid-template-rows: repeat(5, auto)
+    grid-template-areas: 'name  price' 'shortDes shortDes' 'fullDes fullDes' 'composition composition' 'gallery gallery'
+    gap: 60px
+    height: 72vh
     overflow-y: auto
     align-content: flex-start
+    padding-top: 40px
+
+    @media screen and (max-width: 500px)
+      height: 62vh
+      grid-template-columns: 1fr
+      grid-template-rows: repeat(6, auto)
+      grid-template-areas: 'name'  'price' 'shortDes' 'fullDes' 'composition' 'gallery'
 
     &_item
       display: flex
@@ -40,6 +78,10 @@
         line-height: 1.8rem
         color: $overlay
 
+        @media screen and (max-width: 500px)
+          font-size: 1.5rem
+          line-height: 1.7rem
+
       &_value
         border-radius: 20px
         border: 2px solid $peach-back
@@ -50,6 +92,10 @@
         outline: none
         font-family: $font
         width: calc(100% - 60px)
+
+        @media screen and (max-width: 500px)
+          font-size: 1.6rem
+          line-height: 1.8rem
 
         &_textarea
           resize: none
@@ -84,7 +130,7 @@
 
         &_images
           display: flex
-          flex-flow: row
+          flex-flow: row wrap
           justify-content: flex-start
           align-items: center
           gap: 30px
@@ -161,6 +207,10 @@
     justify-content: flex-start
     align-items: center
     padding-top: 30px
+    gap: 10px
+
+    @media screen and (max-width: 500px)
+      flex-flow: column nowrap
 
     &_warning
       display: flex

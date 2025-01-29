@@ -93,7 +93,7 @@
           </div>
         </div>
       </div> 
-      <div class="add-card-component_block_item add-card-component_block_item_calories">
+      <!-- <div class="add-card-component_block_item add-card-component_block_item_calories">
         <div class="add-card-component_block_item_label">
           {{ 'КБЖУ' }}
         </div>
@@ -139,8 +139,14 @@
             >
           </div>
         </div>
-      </div> 
+      </div>  -->
     </div>
+    <span 
+      class="add-card-component_btn__close"
+      @click="store.cardForm.show = false"
+    >
+      {{ 'x' }}
+    </span>
     <div class="add-card-component_btn_row">
       <div class="add-card-component_btn_row_warning">
         <div 

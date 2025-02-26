@@ -11,10 +11,10 @@ export const mainStore = defineStore('main', {
           url: '#why-so-healthy',
           name: 'Вкус и польза'
         },
-        {
-          url: '#delivery',
-          name: 'Доставка'
-        },
+        // {
+        //   url: '#delivery',
+        //   name: 'Доставка'
+        // },
         {
           url: '#catalog',
           name: 'Каталог'

@@ -75,7 +75,7 @@
       <div class="catalog-modal-container_block_description">
         {{ dataModal?.description }}
       </div>
-      <div class="catalog-modal-container_block_inside">
+      <!-- <div class="catalog-modal-container_block_inside">
         <ul class="catalog-modal-container_block_inside_colories">
           <li class="catalog-modal-container_block_inside_colories_item">
             {{ `Б:  ${dataModal?.protein} гр.` }}
@@ -93,7 +93,7 @@
         <div class="catalog-modal-container_block_inside_block">
           {{ `Состав:  ${dataModal?.composition}` }}
         </div>
-      </div>
+      </div> -->
       <div class="catalog-modal-container_block_footer">
         <button 
           class="catalog-modal-container_block_footer__close"

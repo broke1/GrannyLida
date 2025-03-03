@@ -83,7 +83,8 @@ export const mainStore = defineStore('main', {
           text: 'К сожалению отправить данные не удалось, попробуйте ещё раз',
           success: false
         }
-      }
+      },
+      isMobile: false
     }
   },
   getters: {

@@ -11,6 +11,7 @@
       >
     </article>
     <article 
+      v-if="!store.isMobile"
       class="header-container_menu"
       :class="{ 'header-container_menu__show': store.showMenu, 'header-container_menu__scroll': store.isMenuScroll }"
       data-testid="menuTestId"
@@ -34,15 +35,59 @@
         </router-link>
       </button>
     </article>
+    <article 
+      v-if="store.isMobile"
+      class="header-container_menu"
+      :class="{ 'header-container_menu__show': store.showMenu, 'header-container_menu__scroll': store.isMenuScroll }"
+      data-testid="menuTestIdMobile"
+    >
+      <button class="header-container_menu_button">
+        <router-link 
+          class="header-container_menu_button_item"
+          :to="{ name: 'MainPage', hash: '#contacts' }"
+        >
+          {{ "Заказать торт" }}
+        </router-link>
+      </button> 
+      <div 
+        class="header-container_menu_button_mobile"
+        @click="handleOpenMenu" 
+      >
+        <img 
+          class="header-container_menu_button_mobile_img"
+          src="@/assets/menu-mobile.png"
+        >
+      </div> 
+      <!-- <div class="header-container_menu_list">
+        <router-link 
+          v-for="item in store.menuList"
+          :key="item.name"
+          class="header-container_menu_list_item"
+          :to="{ name: 'MainPage', hash: item.url }"
+        >
+          {{ item.name }}
+        </router-link>
+      </div>
+      <button class="header-container_menu_button">
+        <router-link 
+          class="header-container_menu_button_item"
+          :to="{ name: 'MainPage', hash: '#contacts' }"
+        >
+          {{ "Заказать торт" }}
+        </router-link>
+      </button> -->
+    </article>
   </section>
 </template>
 
 <script setup lang="ts">
 
-import {  onMounted  } from 'vue'
+import {  onMounted, ref  } from 'vue'
 import { mainStore } from '@/store/Store'
 
 const store = mainStore()
+
+const isOpenMenu = ref(false)
 
 onMounted(() => {
   setTimeout( () => {
@@ -55,8 +100,14 @@ onMounted(() => {
   window.addEventListener('scroll', () => {
     window.scrollY > 100 ? store.isMenuScroll = true : store.isMenuScroll = false
   })
+
+  store.isMobile = window.screen.width < 500
   
 })
+
+const handleOpenMenu = () => {
+  isOpenMenu.value = true
+}
 
 </script>
 

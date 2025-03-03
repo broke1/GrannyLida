@@ -54,6 +54,7 @@ export interface State {
       success: boolean
     }
   }
+  isMobile: boolean
 }
 
 export interface AdminState {

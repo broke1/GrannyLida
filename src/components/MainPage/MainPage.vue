@@ -7,27 +7,23 @@
   >
     <div class="mainPage-page_container">
       <HeaderComponent />
-      <!-- <AboutGranny />
-      <WhySoHealthy /> -->
-
+      <AboutGranny />
+      <WhySoHealthy />
       <!-- <DeliveryComponent /> -->
-
-      <!-- <CatalogComponent />
-      <ContactsComponent /> -->
+      <CatalogComponent />
+      <!-- <ContactsComponent /> -->
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 
-// import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
-// import CatalogComponent from '@/components/CatalogComponent/CatalogComponent.vue'
+import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
+import CatalogComponent from '@/components/CatalogComponent/CatalogComponent.vue'
 // import ContactsComponent from '@/components/ContactsComponent/ContactsComponent.vue'
-
 // import DeliveryComponent from '@/components/DeliveryComponent/DeliveryComponent.vue'
-
 import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
-// import WhySoHealthy from '@/components/WhySoHealthy/WhySoHealthy.vue'
+import WhySoHealthy from '@/components/WhySoHealthy/WhySoHealthy.vue'
 
 
 </script>

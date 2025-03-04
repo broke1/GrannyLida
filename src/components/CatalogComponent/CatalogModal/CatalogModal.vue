@@ -52,7 +52,7 @@
           v-if="dataModal?.gallery.split(';').length > 1"
           v-model="currentSlide"
           class="carousel_thumbnails"
-          :items-to-show="3"
+          :items-to-show="store.isMobile ? 4 : 3"
           :wrap-around="true"
         >
           <Slide 

@@ -51,31 +51,36 @@
       </button> 
       <div 
         class="header-container_menu_button_mobile"
-        @click="handleOpenMenu" 
+        @click="handleToggleMenu" 
       >
         <img 
           class="header-container_menu_button_mobile_img"
           src="@/assets/menu-mobile.png"
         >
       </div> 
-      <!-- <div class="header-container_menu_list">
+      <div 
+        class="header-container_menu_list"
+        :class="{ 'header-container_menu_list__show': isOpenMenu}"
+      >
         <router-link 
           v-for="item in store.menuList"
           :key="item.name"
           class="header-container_menu_list_item"
           :to="{ name: 'MainPage', hash: item.url }"
+          @click="handleToggleMenu" 
         >
           {{ item.name }}
         </router-link>
-      </div>
-      <button class="header-container_menu_button">
-        <router-link 
-          class="header-container_menu_button_item"
-          :to="{ name: 'MainPage', hash: '#contacts' }"
+        <div 
+          class="header-container_menu_list_btn__close"
+          @click="handleToggleMenu" 
         >
-          {{ "Заказать торт" }}
-        </router-link>
-      </button> -->
+          <img 
+            class="header-container_menu_list_btn__close_img"
+            src="@/assets/close.jpg"
+          >
+        </div>
+      </div>
     </article>
   </section>
 </template>
@@ -105,8 +110,8 @@ onMounted(() => {
   
 })
 
-const handleOpenMenu = () => {
-  isOpenMenu.value = true
+const handleToggleMenu = () => {
+  isOpenMenu.value = !isOpenMenu.value
 }
 
 </script>

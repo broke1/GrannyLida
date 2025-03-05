@@ -14,6 +14,10 @@
     justify-content: flex-start
     align-items: center
 
+    @media screen and (max-width: 500px)
+      padding: 0 20px
+      width: calc(100% - 40px)
+
     &__show
       animation: show_title 0.4s linear
       animation-fill-mode: forwards
@@ -27,6 +31,10 @@
         font-size: 2rem
         line-height: 2.4rem
         color: $black
+
+        @media screen and (max-width: 500px)
+          font-size: 1.4rem
+          line-height: 2rem
 
         &__orange
           color: $peach
@@ -43,6 +51,11 @@
       outline: none
       font-family: $font
 
+      @media screen and (max-width: 500px)
+        width: calc(100% - 40px)
+        font-size: 1.4rem
+        line-height: 2rem
+
       &_textarea
         resize: none
 
@@ -54,6 +67,9 @@
       gap: 20px
       width: calc(400px + 40px)
       margin-top: 30px
+
+      @media screen and (max-width: 500px)
+        width: calc(100% - 40px)
 
       &_checkbox
         // display: none
@@ -109,6 +125,10 @@
       flex-flow: column nowrap
       justify-content: center
       align-items: center
+
+      @media screen and (max-width: 500px)
+        width: calc(100% - 40px)
+        margin: 40px 0
 
       &__success
         color: $peach-back

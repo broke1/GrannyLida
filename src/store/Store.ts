@@ -72,7 +72,7 @@ export const mainStore = defineStore('main', {
       contactsPhone: '+7 916 853-52-82',
       contactsForm: {
         title: `
-        <div class="contacts-container_block_title_text">Напиши мне и я обязательно приготовлю торт <span class="contacts-container_block_title_text__orange">твоей мечты</span>
+        <div class="contacts-form_block_title_text">Напиши мне и я обязательно приготовлю торт <span class="contacts-form_block_title_text__orange">твоей мечты</span>
         </div>`,
         name: '',
         phone: '',

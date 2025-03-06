@@ -52,6 +52,8 @@
       grid-template-columns: 100%
       grid-template-areas: 'header' 'image' 'description' 'footer'
 
+    @media screen and (max-width: 400px)
+      grid-template-rows: 65px 48vh 18vh 100px
 
     &_btn__close
       position: absolute
@@ -61,6 +63,10 @@
       width: 30px
       height: 30px
       z-index: 2
+
+      @media screen and (max-width: 400px)
+        right: 18px
+        top: 18px
 
       &_img
         width: 100%
@@ -77,6 +83,10 @@
       line-height: 2.4rem
       color: $peach
       position: relative
+
+      @media screen and (max-width: 400px)
+        font-size: 1.5rem
+        line-height: 2rem
 
       &::after
         content: ""
@@ -116,7 +126,10 @@
       @media screen and (max-width: 500px)
         font-size: 1.4rem
         line-height: 2rem
-        text-indent: 1.5rem
+
+      @media screen and (max-width: 400px)
+        font-size: 1.2rem
+        line-height: 1.8rem
 
       &::after
         content: ""
@@ -126,6 +139,9 @@
         width: 100%
         height: 3px
         background: $peach-back
+
+        @media screen and (max-width: 500px)
+          display: none
 
     // &_inside
     //   position: relative
@@ -189,6 +205,9 @@
         padding: 15px 20px
         font-family: $font
         border: 3px solid $peach-back
+
+        @media screen and (max-width: 400px)
+          display: none
 
       &__order
         background: $peach-back

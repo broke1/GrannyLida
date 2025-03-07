@@ -65,6 +65,9 @@
     flex: 1
     width: 100%
     padding-bottom: 150px
+
+    @media screen and (max-width: 400px)
+      gap: 60px
     
     &_item
       display: flex
@@ -81,6 +84,11 @@
 
       @media screen and (max-width: 500px)
         gap: 20px
+
+      @media screen and (max-width: 400px)
+        flex-flow: column nowrap
+        justify-content: flex-start
+        align-items: flex-start
 
       &:hover
         background: $peach-hover
@@ -133,6 +141,14 @@
         padding-bottom: 2px
         border: 2px solid $white
 
+        @media screen and (max-width: 500px)
+          top: 50%
+          transform: translateY(-50%)
+
+        @media screen and (max-width: 400px)
+          top: 0px
+          transform: translateY(0)
+
   &_footer
     position: absolute
     width: calc(100% - 60px)
@@ -165,6 +181,10 @@
         transition: $transition
         z-index: 1
 
+        @media screen and (max-width: 400px)
+          font-size: 1.2rem
+          line-height: 1.4rem
+
         &__show
           opacity: 1
 
@@ -184,5 +204,9 @@
       outline: none
       border: none
       font-family: $font
+
+      @media screen and (max-width: 400px)
+        font-size: 1rem
+        line-height: 1.2rem
 
 

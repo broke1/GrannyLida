@@ -21,79 +21,93 @@
       <div class="catalog-modal-container_block_title">
         {{ dataModal?.name }}
       </div>
-      <!-- <div 
-        v-if="dataModal?.gallery.length == 0"
-        class="catalog-modal-container_block_gallery"
-      >
-        <img 
-          class="catalog-modal-container_block_gallery_img"
-          :src="`${dataModal?.imgPath}main-image.jpg`"
+      <div class="catalog-modal-container_block_body">
+        <!-- <div 
+          v-if="dataModal?.gallery.length == 0"
+          class="catalog-modal-container_block_gallery"
         >
-      </div> -->
-      <div class="catalog-modal-container_block_gallery">
-        <Carousel
-          v-model="currentSlide"
-          class="carousel_galery"
-        >
-          <Slide 
-            v-for="(slide, index) in dataModal?.gallery.split(';')" 
-            :key="index"
+          <img 
+            class="catalog-modal-container_block_gallery_img"
+            :src="`${dataModal?.imgPath}main-image.jpg`"
           >
-            <div class="carousel_item">
-              <img 
-                class="carousel_item_img"
-                :src="`${pathImg(slide)}`"
-              >
-            </div>
-          </Slide>
-        </Carousel>
-
-        <Carousel
-          v-if="dataModal?.gallery.split(';').length > 1"
-          v-model="currentSlide"
-          class="carousel_thumbnails"
-          :items-to-show="store.isMobile ? 4 : 3"
-          :wrap-around="true"
-        >
-          <Slide 
-            v-for="(slide, index) in dataModal?.gallery.split(';')" 
-            :key="index"
+        </div> -->
+        <div class="catalog-modal-container_block_gallery">
+          <Carousel
+            v-model="currentSlide"
+            class="carousel_galery"
           >
-            <div 
-              class="carousel_item carousel_item__tumbnail" 
-              :class="{'carousel_item__tumbnail__active': currentSlide == index}"
-              @click="slideTo(index)"
+            <Slide 
+              v-for="(slide, index) in dataModal?.gallery.split(';')" 
+              :key="index"
             >
-              <img 
-                class="carousel_item_img"
-                :src="`${pathImg(slide)}`"
+              <div class="carousel_item">
+                <img 
+                  class="carousel_item_img"
+                  :src="`${pathImg(slide)}`"
+                >
+              </div>
+            </Slide>
+          </Carousel>
+
+          <Carousel
+            v-if="dataModal?.gallery.split(';').length > 1"
+            v-model="currentSlide"
+            class="carousel_thumbnails"
+            :items-to-show="store.isMobile ? 4 : 3"
+            :wrap-around="true"
+          >
+            <Slide 
+              v-for="(slide, index) in dataModal?.gallery.split(';')" 
+              :key="index"
+            >
+              <div 
+                class="carousel_item carousel_item__tumbnail" 
+                :class="{'carousel_item__tumbnail__active': currentSlide == index}"
+                @click="slideTo(index)"
               >
-            </div>
-          </Slide>
-        </Carousel>
-      </div>
-      <div class="catalog-modal-container_block_description">
-        {{ dataModal?.description }}
-      </div>
-      <!-- <div class="catalog-modal-container_block_inside">
-        <ul class="catalog-modal-container_block_inside_colories">
-          <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `Б:  ${dataModal?.protein} гр.` }}
-          </li>
-          <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `Ж:  ${dataModal?.fats} гр.` }}
-          </li>
-          <li class="catalog-modal-container_block_inside_colories_item">
-            {{ `У:  ${dataModal?.carbo} гр.` }}
-          </li>
-          <li class="catalog-modal-container_block_inside_colories_item catalog-modal-container_block_inside_colories_item__last">
-            {{ `К:  ${dataModal?.calorie} ккал` }}
-          </li>
-        </ul>
-        <div class="catalog-modal-container_block_inside_block">
-          {{ `Состав:  ${dataModal?.composition}` }}
+                <img 
+                  class="carousel_item_img"
+                  :src="`${pathImg(slide)}`"
+                >
+              </div>
+            </Slide>
+          </Carousel>
         </div>
-      </div> -->
+
+        <div class="catalog-modal-container_block_description">
+          <div class="catalog-modal-container_block_description_text">
+            {{ dataModal?.description }}
+          </div>
+          <span class="catalog-modal-container_block_title-mini">
+            {{ 'Описание' }}
+          </span>
+        </div>
+
+        <div class="catalog-modal-container_block_inside">
+          <!-- <ul class="catalog-modal-container_block_inside_colories">
+            <li class="catalog-modal-container_block_inside_colories_item">
+              {{ `Б:  ${dataModal?.protein} гр.` }}
+            </li>
+            <li class="catalog-modal-container_block_inside_colories_item">
+              {{ `Ж:  ${dataModal?.fats} гр.` }}
+            </li>
+            <li class="catalog-modal-container_block_inside_colories_item">
+              {{ `У:  ${dataModal?.carbo} гр.` }}
+            </li>
+            <li class="catalog-modal-container_block_inside_colories_item catalog-modal-container_block_inside_colories_item__last">
+              {{ `К:  ${dataModal?.calorie} ккал` }}
+            </li>
+          </ul> -->
+          <div class="catalog-modal-container_block_inside_block">
+            <div class="catalog-modal-container_block_inside_block_text">
+              {{ `${dataModal?.composition}` }}
+            </div>
+            <span class="catalog-modal-container_block_title-mini">
+              {{ 'Состав' }}
+            </span>
+          </div>
+        </div>
+      </div>
       <div class="catalog-modal-container_block_footer">
         <button 
           class="catalog-modal-container_block_footer__close"

@@ -9,7 +9,7 @@
       <HeaderComponent />
       <AboutGranny />
       <WhySoHealthy />
-      <!-- <DeliveryComponent /> -->
+      <DeliveryComponent />
       <CatalogComponent />
       <ContactsComponent />
     </div>
@@ -21,7 +21,7 @@
 import AboutGranny from '@/components/AboutGranny/AboutGranny.vue'
 import CatalogComponent from '@/components/CatalogComponent/CatalogComponent.vue'
 import ContactsComponent from '@/components/ContactsComponent/ContactsComponent.vue'
-// import DeliveryComponent from '@/components/DeliveryComponent/DeliveryComponent.vue'
+import DeliveryComponent from '@/components/DeliveryComponent/DeliveryComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
 import WhySoHealthy from '@/components/WhySoHealthy/WhySoHealthy.vue'
 

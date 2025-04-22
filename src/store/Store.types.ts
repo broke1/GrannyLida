@@ -15,6 +15,7 @@ export interface State {
   showDelivery: boolean
   deliveryTitle: string
   deliveryText: string
+  deliveryAddres: string
   showCatalog: boolean
   catalogTitle: string
   catalogList: {

@@ -50,8 +50,6 @@ app.post('/api/checkAuth', (req, res) => {
 
     await db.get(`select * from users where login = "${req.body.login}"`, async (err, row) => {
 
-      // console.log(row)
-
       if (!row){
         res.status(500).json(`pass is not correct`)
         return

@@ -11,10 +11,10 @@ export const mainStore = defineStore('main', {
           url: '#why-so-healthy',
           name: 'Вкус и польза'
         },
-        // {
-        //   url: '#delivery',
-        //   name: 'Доставка'
-        // },
+        {
+          url: '#delivery',
+          name: 'Доставка'
+        },
         {
           url: '#catalog',
           name: 'Каталог'
@@ -53,6 +53,7 @@ export const mainStore = defineStore('main', {
         <div class="delivery-container_block_body_right_part_text_item">Поэтому мои торты я доставляю <span class="delivery-container_block_body_right_part_text_item__orange">сама</span></div>
         <div class="delivery-container_block_body_right_part_text_item"> Это гарантирует, что к вам они подадут в целости и в том виде, который задумала я.</div>
       `,
+      deliveryAddres: `ул. Народного ополчения, д. 48, к. 1, кв. 39`,
       showCatalog: false,
       catalogTitle: `<div class="catalog-container_block_title_text">А вот и сами <span class="catalog-container_block_title_text__orange">торты</span> и 
       <span class="catalog-container_block_title_text__orange">пироженные</span></div>`,

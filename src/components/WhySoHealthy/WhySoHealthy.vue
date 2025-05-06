@@ -14,30 +14,42 @@
         v-html="store.whySoHealthyTitle"
       />
       <div class="why-so-healthy-container_block_body">
-        <div class="why-so-healthy-container_block_body_left_part">
-          <div 
-            class="why-so-healthy-container_block_body_left_part_text"
-            v-html="store.healthyText.previewHealthy"
-          />
-          <ul class="why-so-healthy-container_block_body_left_part_text why-so-healthy-container_block_body_left_part_text_list">
-            <li 
-              v-for="item in store.healthyText.list"
-              :key="item"
-              class="why-so-healthy-container_block_body_left_part_text_item why-so-healthy-container_block_body_left_part_text_list_item"
+        <div class="why-so-healthy-container_block_body_row">
+          <div class="why-so-healthy-container_block_body_left_part">
+            <div 
+              class="why-so-healthy-container_block_body_left_part_text"
+              v-html="store.healthyText.firstRowHealthy"
+            />
+            <ul class="why-so-healthy-container_block_body_left_part_text why-so-healthy-container_block_body_left_part_text_list">
+              <li 
+                v-for="item in store.healthyText.list"
+                :key="item"
+                class="why-so-healthy-container_block_body_left_part_text_item why-so-healthy-container_block_body_left_part_text_list_item"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="why-so-healthy-container_block_body_right_part">
+            <img 
+              class="why-so-healthy-container_block_body_right_part_img"
+              src="@/assets/why-so-healthy.jpg"
             >
-              {{ item }}
-            </li>
-          </ul>
-          <div 
-            class="why-so-healthy-container_block_body_left_part_text"
-            v-html="store.healthyText.endingHealthy"
-          />
+          </div>
         </div>
-        <div class="why-so-healthy-container_block_body_right_part">
-          <img 
-            class="why-so-healthy-container_block_body_right_part_img"
-            src="@/assets/why-so-healthy.jpg"
-          >
+        <div class="why-so-healthy-container_block_body_row why-so-healthy-container_block_body_row_second">
+          <div class="why-so-healthy-container_block_body_right_part why-so-healthy-container_block_body_right_part_second">
+            <img 
+              class="why-so-healthy-container_block_body_right_part_img"
+              src="@/assets/why-so-healthy.jpg"
+            >
+          </div>
+          <div class="why-so-healthy-container_block_body_left_part why-so-healthy-container_block_body_left_part_second">
+            <div 
+              class="why-so-healthy-container_block_body_left_part_text"
+              v-html="store.healthyText.secondRowHealthy"
+            />
+          </div>
         </div>
       </div>
     </article>

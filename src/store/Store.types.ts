@@ -8,9 +8,10 @@ export interface State {
   showWhySoHealthy: boolean
   whySoHealthyTitle: string
   healthyText: {
-    previewHealthy: string
+    firstRowHealthy: string
     list: string[]
-    endingHealthy: string
+    secondRowHealthy: string
+    // endingHealthy: string
   },
   showDelivery: boolean
   deliveryTitle: string

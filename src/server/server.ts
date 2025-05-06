@@ -157,7 +157,7 @@ const storage = multer.diskStorage({ // делаем настройку для �
 const upload = multer({ storage: storage }) // переменная для управления загрузкой файлов
 
 // метод отправки новой карточки товара
-app.post('/api/changeCard', upload.array('images', 15), (req, res) => {
+app.post('/api/changeCard', upload.array('images', 15) as unknown as express.RequestHandler, (req, res) => {
 
   const checkvalue = (value: string) => value || ''
 

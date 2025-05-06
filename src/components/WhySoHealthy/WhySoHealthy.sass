@@ -2,7 +2,7 @@
   
 .why-so-healthy-container
   width: 100%
-  height: 80vh
+  height: auto
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
@@ -15,7 +15,7 @@
 
   &_block
     width: 100%
-    height: 100%
+    height: auto
     border-radius: 20px
     background: $white
     opacity: 0
@@ -57,18 +57,28 @@
           color: $peach
 
     &_body
-      display: flex
-      flex-flow: row nowrap
-      justify-content: flex-start
-      align-items: flex-start 
       margin-top: 80px
-      width: 100%
-      height: 100%
+      display: flex
+      flex-flow: column nowrap
+      justify-content: flex-start
+      align-items: flex-start
+      gap: 50px
 
-      @media screen and (max-width: 500px)
-        flex-flow: column nowrap
-        flex-direction: column-reverse
-        margin-top: 50px
+      &_row
+        display: flex
+        flex-flow: row nowrap
+        justify-content: flex-start
+        align-items: center
+        width: 100%
+        height: 100%
+
+        @media screen and (max-width: 500px)
+          flex-flow: column nowrap
+          flex-direction: column-reverse
+          margin-top: 50px
+
+        &_second
+          align-items: flex-end
 
       &_left_part
         width: 60%
@@ -82,6 +92,10 @@
         @media screen and (max-width: 500px)
           width: calc(100% - 40px)
           padding: 40px 20px
+
+        &_second
+          padding-left: 50px
+          padding-right: 20px
 
         &_text
           display: flex
@@ -144,7 +158,17 @@
           width: 100%
           height: 100%
           object-fit: cover
-          border-radius: 20px 0
+          border-radius: 20px 0 0 20px
+
+        &_second
+          display: flex
+          flex-flow: column nowrap
+          justify-content: flex-end
+          align-items: flex-start
+
+          img
+            border-radius: 0 20px 0 0
+
 
     
 

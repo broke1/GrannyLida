@@ -75,10 +75,12 @@
         @media screen and (max-width: 500px)
           flex-flow: column nowrap
           flex-direction: column-reverse
-          margin-top: 50px
 
         &_second
           align-items: flex-end
+
+          @media screen and (max-width: 500px)
+            flex-direction: column
 
       &_left_part
         width: 60%
@@ -160,6 +162,9 @@
           object-fit: cover
           border-radius: 20px 0 0 20px
 
+          @media screen and (max-width: 500px)
+            border-radius: 20px
+
         &_second
           display: flex
           flex-flow: column nowrap
@@ -168,6 +173,9 @@
 
           img
             border-radius: 0 20px 0 0
+
+            @media screen and (max-width: 500px)
+              border-radius: 20px
 
 
     

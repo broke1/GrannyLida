@@ -58,10 +58,11 @@ export const mainStore = defineStore('main', {
       showDelivery: false,
       deliveryTitle: `<div class="delivery-container_block_title_text">Как мои торты попадают к вам на стол?</div>`,
       deliveryText: `<div class="delivery-container_block_body_right_part_text_item"> При изготовлении кондитерских изысков, я вкладываю в них свою  
-        <span class="delivery-container_block_body_right_part_text_item__orange">любовь, мастерство и вдохновение</span>, поэтому мои торты слишком ценные, чтобы доверить их любой службе доставки.
+        <span class="delivery-container_block_body_right_part_text_item__orange">любовь, мастерство и вдохновение</span>, поэтому лучше всего будет, если Вы приедите ко мне в гости, 
+        и я вручу мой торт в том виде, который задумала я.
         </div>
-        <div class="delivery-container_block_body_right_part_text_item">Поэтому мои торты я доставляю <span class="delivery-container_block_body_right_part_text_item__orange">сама</span></div>
-        <div class="delivery-container_block_body_right_part_text_item"> Это гарантирует, что к вам они подадут в целости и в том виде, который задумала я.</div>
+        <div class="delivery-container_block_body_right_part_text_item">Однако можно заказать доставку и курьером. Сами заказы принимаются не меньше, чем за неделю.
+        А вот если Вам нужно срочно, попрошу Вас доплатить.</div>
       `,
       deliveryAddres: `ул. Народного ополчения, д. 48, к. 1, кв. 39`,
       showCatalog: false,

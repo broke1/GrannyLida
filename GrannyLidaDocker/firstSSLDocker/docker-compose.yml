@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  nginx:
+
+    image: nginx:alpine
+
+    container_name: nginx_certbot
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - certbot-www:/usr/share/nginx/html
+
+    command: ["nginx", "-g", "daemon off;"]
+
+    networks:
+      - certbot-net
+
+  certbot:
+
+    image: certbot/certbot
+
+    container_name: certbot
+
+    volumes:
+      - certbot-www:/var/www/html
+      - ../certs:/etc/letsencrypt
+
+    command: certonly --webroot -w /var/www/html --email broke1@yandex.ru --agree-tos --no-eff-email -d grannylida.ru
+
+    depends_on:
+      - nginx
+
+    networks:
+      - certbot-net
+
+volumes:
+  certbot-www:
+
+networks:
+  certbot-net:

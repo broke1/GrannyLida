@@ -111,14 +111,14 @@ export const mainStore = defineStore('main', {
   actions: {
     async getCatalogList() {
       
-      // await fetch('/api/getCards')
-      //   .then( response => {
-      //     if ([200,204].includes(response.status)){
-      //       response.json().then( res => {
-      //         this.catalogList = res
-      //       })
-      //     }
-      //   })
+      await fetch('/api/getCards')
+        .then( response => {
+          if ([200,204].includes(response.status)){
+            response.json().then( res => {
+              this.catalogList = res
+            })
+          }
+        })
 
     },
     async sendOrder() {

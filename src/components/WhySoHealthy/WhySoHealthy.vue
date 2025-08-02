@@ -41,7 +41,7 @@
           <div class="why-so-healthy-container_block_body_right_part why-so-healthy-container_block_body_right_part_second">
             <img 
               class="why-so-healthy-container_block_body_right_part_img"
-              src="@/assets/why-so-healthy.jpg"
+              src="@/assets/why-so-healthy-2.jpg"
             >
           </div>
           <div class="why-so-healthy-container_block_body_left_part why-so-healthy-container_block_body_left_part_second">

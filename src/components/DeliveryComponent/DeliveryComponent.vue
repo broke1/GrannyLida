@@ -90,7 +90,7 @@ onMounted(() => {
       balloonContent: 'Ул. Народного ополчения д. 48 к1'
     }, {
       iconLayout: 'default#image',
-      iconImageHref: 'src/assets/delivery.jpg',
+      iconImageHref: 'src/assets/map.png',
       iconImageSize: [30, 30],
       iconImageOffset: [-15, -15]
     });

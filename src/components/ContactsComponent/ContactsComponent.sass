@@ -60,7 +60,7 @@
 
     &_body
       display: grid
-      grid-template-columns: 45% 55%
+      grid-template-columns: 55% 45%
       // grid-template-areas: 'phone form' 'image form'
       width: 100%
       height: 100%
@@ -89,7 +89,7 @@
 
           &_row
             width: 100%
-            margin-top: 30px
+            margin-bottom: 30px
             display: flex
             flex-flow: row nowrap
             justify-content: center
@@ -136,6 +136,17 @@
               animation: show_link 0.4s linear
               animation-fill-mode: forwards
 
+      &_right_part
+        height: 100% 
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-between
+        align-items: flex-start
+        align-self: stretch
+
+        @media screen and (max-width: 500px)
+          margin-top: 40px
+
         &_img
           opacity: 0
           transition: $transition
@@ -151,17 +162,10 @@
             width: 100%
             height: 100%
             object-fit: cover
-            border-radius: 0 20px 0 0
+            border-radius: 20px 0 0 0
 
             @media screen and (max-width: 500px)
               border-radius: 0 20px 0 20px
-
-      &_right_part
-        height: 100% 
-        overflow: hidden 
-
-        @media screen and (max-width: 500px)
-          margin-top: 40px
 
   &_signature
     width: 100%

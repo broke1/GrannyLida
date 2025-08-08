@@ -40,18 +40,18 @@
               </div>
             </a>
           </div>
+        </div>
+        <div class="contacts-container_block_body_right_part">
+          <!-- <ContactsForm /> -->
           <div 
-            class="contacts-container_block_body_left_part_img"
-            :class="{'contacts-container_block_body_left_part_img__show': store.showContacts}"
+            class="contacts-container_block_body_right_part_img"
+            :class="{'contacts-container_block_body_right_part_img__show': store.showContacts}"
           >
             <img 
-              class="contacts-container_block_body_left_part_img_in"
+              class="contacts-container_block_body_right_part_img_in"
               src="@/assets/contacts.jpg"
             >
           </div>
-        </div>
-        <div class="contacts-container_block_body_right_part">
-          <ContactsForm />
         </div>
       </div>
     </article>
@@ -69,7 +69,7 @@
 <script setup lang="ts">
 
 import {  ref, onMounted, onBeforeUnmount  } from 'vue'
-import ContactsForm from './ContactsForm/ContactsForm.vue'
+// import ContactsForm from './ContactsForm/ContactsForm.vue'
 import { mainStore } from '@/store/Store'
 
 

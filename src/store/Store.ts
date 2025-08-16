@@ -16,8 +16,8 @@ export const mainStore = defineStore('main', {
           name: 'Доставка'
         },
         {
-          url: '#catalog',
-          name: 'Каталог'
+          url: '#gallery',
+          name: 'Галерея'
         },
         {
           url: '#contacts',
@@ -65,9 +65,9 @@ export const mainStore = defineStore('main', {
         А вот если Вам нужно срочно, попрошу Вас доплатить.</div>
       `,
       deliveryAddres: `ул. Народного ополчения, д. 48, к. 1, кв. 39`,
-      showCatalog: false,
-      catalogTitle: `<div class="catalog-container_block_title_text">А вот и сами <span class="catalog-container_block_title_text__orange">торты</span> и 
-      <span class="catalog-container_block_title_text__orange">пироженные</span></div>`,
+      showGallery: false,
+      galleryTitle: `<div class="gallery-container_block_title_text">А вот и сами <span class="gallery-container_block_title_text__orange">торты</span> и 
+      <span class="gallery-container_block_title_text__orange">пироженные</span></div>`,
       catalogList: [],
       catalogModal: {
         show: false,

@@ -1,0 +1,193 @@
+@use "../../styles/main" as *
+@use "../../styles/animation" as *
+  
+.gallery-container
+  width: 100%
+  height: auto
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: center
+  margin-top: 200px
+
+  @media screen and (max-width: 500px)
+    margin-top: 100px
+
+  &_block
+    width: 100%
+    height: 100%
+    border-radius: 20px
+    background: $white
+    opacity: 0
+    transition: $transition
+    transform: translateY(50%)
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    align-items: center
+
+    @media screen and (max-width: 500px)
+      transform: translateY(10%)
+
+    &__show
+      opacity: 1
+      transform: translateY(0%)
+
+    &_title
+      width: 100%
+      margin-top: 50px
+      text-align: center
+
+      @media screen and (max-width: 400px)
+        padding: 0 20px
+        width: calc(100% - 40px)
+
+      &_text
+        font-size: 2.4rem
+        line-height: 2.8rem
+        color: $black
+
+        @media screen and (max-width: 500px)
+          font-size: 1.8rem
+          line-height: 2.2rem
+
+        @media screen and (max-width: 400px)
+          font-size: 1.5rem
+          line-height: 2rem
+
+        &__orange
+          color: $peach
+
+    &_body
+      display: flex
+      // grid-template-areas: 'phone form' 'image form'
+      width: calc(100% - 4rem)
+      height: calc(100% - 4rem)
+      margin-top: 50px
+      // display: grid
+      // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+      // gap: 0.5rem
+      padding: 2rem
+      // columns: 200px 5
+      // gap: 5px
+      
+
+      @media screen and (max-width: 500px)
+        display: flex
+        margin-top: 0px
+
+      &_img_block
+        // break-inside: avoid
+        // margin-bottom: 5px
+        width: 30rem
+        height: auto
+        
+        img
+          width: 100%
+          height: 100%
+          object-fit: contain
+          // display: block
+
+    //   &_left_part
+    //     height: 100%
+    //     display: flex
+    //     flex-flow: column nowrap
+    //     justify-content: space-between
+    //     align-items: flex-start
+    //     align-self: stretch
+
+    //     &_messengers
+    //       width: 100%
+
+    //       @media screen and (max-width: 500px)
+    //         margin-bottom: 40px
+
+    //       &_row
+    //         width: 100%
+    //         margin-bottom: 30px
+    //         display: flex
+    //         flex-flow: row nowrap
+    //         justify-content: center
+    //         align-items: center
+    //         gap: 20px
+    //         opacity: 0
+    //         transform: translateX(-100%)
+    //         transition: $transition
+    //         text-decoration: none
+
+    //         @media screen and (max-width: 500px)
+    //           margin-bottom: 30px
+
+    //         &_img
+    //           width: 40px
+    //           height: 40px
+
+    //           img
+    //             width: 100%
+    //             height: 100%
+    //             object-fit: contain
+    //             transition: $transition
+
+    //         &_text
+    //           font-size: 2rem
+    //           line-height: 2.6rem
+    //           color: $black
+
+    //           @media screen and (max-width: 500px)
+    //             font-size: 1.8rem
+    //             line-height: 2.4rem
+
+    //           @media screen and (max-width: 400px)
+    //             font-size: 1.6rem
+    //             line-height: 2.2rem
+
+    //         &:hover
+
+    //           img
+    //             transform: scale(1.1)
+              
+
+    //         &__show
+    //           animation: show_link 0.4s linear
+    //           animation-fill-mode: forwards
+
+    //   &_right_part
+    //     height: 100% 
+    //     display: flex
+    //     flex-flow: column nowrap
+    //     justify-content: space-between
+    //     align-items: flex-start
+    //     align-self: stretch
+
+    //     @media screen and (max-width: 500px)
+    //       margin-top: 40px
+
+    //     &_img
+    //       opacity: 0
+    //       transition: $transition
+
+    //       @media screen and (max-width: 500px)
+    //         padding: 0 20px
+
+    //       &__show
+    //         animation: show 0.4s linear 1.1s
+    //         animation-fill-mode: forwards
+
+    //       img
+    //         width: 100%
+    //         height: 100%
+    //         object-fit: cover
+    //         border-radius: 20px 0 0 0
+
+    //         @media screen and (max-width: 500px)
+    //           border-radius: 0 20px 0 20px
+
+        
+
+    
+
+
+  
+
+
+      

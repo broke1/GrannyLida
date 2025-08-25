@@ -18,6 +18,10 @@ export interface State {
   deliveryText: string
   deliveryAddres: string
   showGallery: boolean
+  galleryModal: {
+    imgId: number,
+    show: boolean
+  }
   galleryTitle: string
   catalogList: {
     id: number,

@@ -66,6 +66,10 @@ export const mainStore = defineStore('main', {
       `,
       deliveryAddres: `ул. Народного ополчения, д. 48, к. 1, кв. 39`,
       showGallery: false,
+      galleryModal: {
+        imgId: -1,
+        show: false
+      },
       galleryTitle: `<div class="gallery-container_block_title_text">А вот и сами <span class="gallery-container_block_title_text__orange">торты</span> и 
       <span class="gallery-container_block_title_text__orange">пироженные</span></div>`,
       catalogList: [],

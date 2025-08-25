@@ -36,41 +36,43 @@ export const galleryItems = [
     src: pathImg(6),
     rows: 2
   },
-  // {
-  //   id: 4,
-  //   src: pathImg(4),
-  //   width: 800,
-  //   height: 600,
-  //   aspectRatio: 800 / 600,
-  //   columns: 1,
-  // },
-  // {
-  //   id: 4,
-  //   src: pathImg(4),
-  //   width: 800,
-  //   height: 600,
-  //   aspectRatio: 800 / 600,
-  //   columns: 1,
-  // },
-  // {
-  //   id: 5,
-  //   src: pathImg(4),
-  //   width: 800,
-  //   height: 600,
-  //   aspectRatio: 800 / 600
-  // },
-  // {
-  //   id: 6,
-  //   src: pathImg(5),
-  //   width: 800,
-  //   height: 600,
-  //   aspectRatio: 800 / 600
-  // },
-  // {
-  //   id: 7,
-  //   src: pathImg(6),
-  //   width: 400,
-  //   height: 600,
-  //   aspectRatio: 400 / 600
-  // },
+  {
+    id: 7,
+    src: pathImg(7),
+  },
+  {
+    id: 8,
+    src: pathImg(8),
+  },
+  {
+    id: 9,
+    src: pathImg(9),
+    columns: 2
+  },
+  {
+    id: 10,
+    src: pathImg(10),
+    columns: 2
+  },
+  {
+    id: 11,
+    src: pathImg(11),
+    rows: 2
+  },
+  {
+    id: 12,
+    src: pathImg(12)
+  },
+  {
+    id: 13,
+    src: pathImg(13),
+  },
+  {
+    id: 14,
+    src: pathImg(14)
+  },
+  {
+    id: 15,
+    src: pathImg(15),
+  },
 ]

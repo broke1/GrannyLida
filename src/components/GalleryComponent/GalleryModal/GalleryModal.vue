@@ -3,11 +3,11 @@
     class="gallery-modal" 
     :class="{ 'gallery-modal__show': store.galleryModal.show }"
   >
-    <div class="gallery-modal_overlay" />
+    <div class="gallery-modal_overlay"  @click="handleCloseModal" />
     <div class="gallery-modal_content">
       <div 
         class="gallery-modal_content_btn__close"
-        @click="store.galleryModal = {show: false, imgId: -1}" 
+        @click="handleCloseModal" 
       >
         <img 
           class="gallery-modal_content_btn__close_img"
@@ -65,6 +65,10 @@ const handleMoveForward = () => {
 
 const handleMoveBack = () => {
   store.galleryModal.imgId -1 < 0 ? store.galleryModal.imgId = maxImgId : store.galleryModal.imgId--
+}
+
+const handleCloseModal = () => {
+  store.galleryModal = {show: false, imgId: -1}
 }
 
 </script>

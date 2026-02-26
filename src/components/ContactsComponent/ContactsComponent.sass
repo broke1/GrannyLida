@@ -76,13 +76,13 @@
       &_left_part
         height: 100%
         display: flex
-        flex-flow: column nowrap
-        justify-content: space-between
+        flex-flow: row nowrap
+        justify-content: center
         align-items: flex-start
         align-self: stretch
 
         &_messengers
-          width: 100%
+          width: auto
 
           @media screen and (max-width: 500px)
             margin-bottom: 40px
@@ -92,7 +92,7 @@
             margin-bottom: 30px
             display: flex
             flex-flow: row nowrap
-            justify-content: center
+            justify-content: flex-start
             align-items: center
             gap: 20px
             opacity: 0

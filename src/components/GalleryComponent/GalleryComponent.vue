@@ -30,6 +30,10 @@
           </div>
         </div>
       </div>
+      <div 
+        class="gallery-container_block_footer"
+        v-html="store.galleryFooter"
+      />
     </article>
   </section>
   <GalleryModal v-if="windowWidth > 500" />

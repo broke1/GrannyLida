@@ -23,6 +23,7 @@ export interface State {
     show: boolean
   }
   galleryTitle: string
+  galleryFooter: string
   catalogList: {
     id: number,
     name: string

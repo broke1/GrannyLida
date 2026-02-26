@@ -27,7 +27,7 @@ export const mainStore = defineStore('main', {
       showAboutGranny: false,
       aboutGrannyText: `
       <div class="about-granny-container_block_text_item about-granny-container_block_text_item__center">Здравствуйте мои дорогие. \r\n Я <span class="about-granny-container_block_text_item__orange">Бабушка Лида</span>.</div>  
-      <div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"> Я создаю самые вкусные и самые полезные муссовые торты и пироженные. </div> 
+      <div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"> Я создаю самые вкусные и самые полезные муссовые торты и пирожные. </div> 
       <div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"> А о том на сколько красивые и уникальные торты у меня получаются уже ходят сказки и легенды. </div> 
       <div class="about-granny-container_block_text_item about-granny-container_block_text_item__intent"> Просто попробуйте, и Вы всё чаще будете возвращаться ко мне в гости.</div>`,
       showWhySoHealthy: false,
@@ -41,24 +41,24 @@ export const mainStore = defineStore('main', {
          потому что я использую натуральные и свежие продукты.</div>
          <div class="why-so-healthy-container_block_body_left_part_text_item">В основании торта находится бисквит из миндальной муки с миндальной крошкой. Пшеничную муку я не использую. Мои торты низкокалорийные и низкобелковые.
          Белок присутствует только в желатине с расчетом 10-12 грамм на 1 килограмм торта.</div>
-         <div class="why-so-healthy-container_block_body_left_part_text_item">Так же я стараюсь использовать натуральные красиатели: чай матча зелёный или голубой, спирулина голубая, 
+         <div class="why-so-healthy-container_block_body_left_part_text_item">Так же я стараюсь использовать натуральные красители: чай матча зелёный или голубой, спирулина голубая, 
          порошок цветков гибискуса, сиреневой питахаи и еще много подобных вкусностей.
         </div>
         <div class="why-so-healthy-container_block_body_left_part_text_item why-so-healthy-container_block_body_left_part_text_item__center">Но есть кое-что что я не использую:</div>`,
         list: ['лактозу','глютен',' искусственные красители','консерванты'],
         secondRowHealthy: `<div class="why-so-healthy-container_block_body_left_part_text_item"><span class="why-so-healthy-container_block_body_left_part_text_item__orange">Вкусные</span> они,
-         потому что основная масса это мусс из сливок с любой ягодой или любым фруктом. Также мусс может быть карамельным или шоколадным. 
-         На выбор три классчиеских шоколада - белый, молочный, тёмный</div>
+         потому что основная масса это мусс из сливок с любой ягодой или любым фруктом. Так же мусс может быть карамельным или шоколадным. 
+         На выбор три классических шоколада - белый, молочный, тёмный</div>
          <div class="why-so-healthy-container_block_body_left_part_text_item">А ещё они вкусные, потому что я вкладываю в каждое изделие частичку своей души и любви к Вам.</div>
          <div class="why-so-healthy-container_block_body_left_part_text_item"><span class="why-so-healthy-container_block_body_left_part_text_item__orange">Красивые</span> они,
-         потому что внутри изделия идёт желейная прослойка из любйо ягоды, которая может быть ровной, круглой и даже в виде сердечка. Это красиво смотрится на разрезе.
+         потому что внутри изделия идёт желейная прослойка из любой ягоды, которая может быть ровной, круглой и даже в виде сердечка. Это красиво смотрится на разрезе.
         </div>
         <div class="why-so-healthy-container_block_body_left_part_text_item">А ещё они красивые, потому что мне нравится видеть Ваши счастливые глаза.</div>`
       },
       showDelivery: false,
       deliveryTitle: `<div class="delivery-container_block_title_text">Как мои торты попадают к вам на стол?</div>`,
       deliveryText: `<div class="delivery-container_block_body_right_part_text_item"> При изготовлении кондитерских изысков, я вкладываю в них свою  
-        <span class="delivery-container_block_body_right_part_text_item__orange">любовь, мастерство и вдохновение</span>, поэтому лучше всего будет, если Вы приедите ко мне в гости, 
+        <span class="delivery-container_block_body_right_part_text_item__orange">любовь, мастерство и вдохновение</span>, поэтому лучше всего будет, если Вы приедете ко мне в гости, 
         и я вручу мой торт в том виде, который задумала я.
         </div>
         <div class="delivery-container_block_body_right_part_text_item">Однако можно заказать доставку и курьером. Сами заказы принимаются не меньше, чем за неделю.
@@ -71,7 +71,9 @@ export const mainStore = defineStore('main', {
         show: false
       },
       galleryTitle: `<div class="gallery-container_block_title_text">А вот и сами <span class="gallery-container_block_title_text__orange">торты</span> и 
-      <span class="gallery-container_block_title_text__orange">пироженные</span></div>`,
+      <span class="gallery-container_block_title_text__orange">пирожные</span></div>`,
+      galleryFooter: `<div class="gallery-container_block_footer_text">Еще больше фото в моём канале 
+      <a href="https://t.me/grannyLida" target="_blank" class="gallery-container_block_footer_text__orange" >@grannylida</a></div>`,
       catalogList: [],
       catalogModal: {
         show: false,
@@ -83,7 +85,8 @@ export const mainStore = defineStore('main', {
         </div>`,
       contactsList: [
         {img: 'watsapp.png',  text: '+7 916 853-52-82', link: 'https://wa.me/+79168535282'},
-        {img: 'telegram.png',  text: '+7 916 853-52-82', link: 'https://t.me/+79168535282'}
+        {img: 'telegram.png',  text: '+7 916 853-52-82', link: 'https://t.me/+79168535282'},
+        {img: 'telegram.png',  text: '@grannylida', link: 'https://t.me/grannyLida'}
       ],
       contactsPhone: '+7 916 853-52-82',
       contactsForm: {
